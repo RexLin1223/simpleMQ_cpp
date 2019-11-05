@@ -55,16 +55,19 @@ struct TableStruct_message_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_message_2eproto;
+namespace message {
 class Payload;
 class PayloadDefaultTypeInternal;
 extern PayloadDefaultTypeInternal _Payload_default_instance_;
 class VisitorProperty;
 class VisitorPropertyDefaultTypeInternal;
 extern VisitorPropertyDefaultTypeInternal _VisitorProperty_default_instance_;
+}  // namespace message
 PROTOBUF_NAMESPACE_OPEN
-template<> ::Payload* Arena::CreateMaybeMessage<::Payload>(Arena*);
-template<> ::VisitorProperty* Arena::CreateMaybeMessage<::VisitorProperty>(Arena*);
+template<> ::message::Payload* Arena::CreateMaybeMessage<::message::Payload>(Arena*);
+template<> ::message::VisitorProperty* Arena::CreateMaybeMessage<::message::VisitorProperty>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
+namespace message {
 
 enum VisitorType : int {
   Publisher = 0,
@@ -94,7 +97,7 @@ inline bool VisitorType_Parse(
 // ===================================================================
 
 class VisitorProperty :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:VisitorProperty) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:message.VisitorProperty) */ {
  public:
   VisitorProperty();
   virtual ~VisitorProperty();
@@ -174,7 +177,7 @@ class VisitorProperty :
   void InternalSwap(VisitorProperty* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "VisitorProperty";
+    return "message.VisitorProperty";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -252,16 +255,16 @@ class VisitorProperty :
   std::string* _internal_mutable_extension();
   public:
 
-  // .VisitorType type = 1;
+  // .message.VisitorType type = 1;
   void clear_type();
-  ::VisitorType type() const;
-  void set_type(::VisitorType value);
+  ::message::VisitorType type() const;
+  void set_type(::message::VisitorType value);
   private:
-  ::VisitorType _internal_type() const;
-  void _internal_set_type(::VisitorType value);
+  ::message::VisitorType _internal_type() const;
+  void _internal_set_type(::message::VisitorType value);
   public:
 
-  // @@protoc_insertion_point(class_scope:VisitorProperty)
+  // @@protoc_insertion_point(class_scope:message.VisitorProperty)
  private:
   class _Internal;
 
@@ -276,7 +279,7 @@ class VisitorProperty :
 // -------------------------------------------------------------------
 
 class Payload :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Payload) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:message.Payload) */ {
  public:
   Payload();
   virtual ~Payload();
@@ -356,7 +359,7 @@ class Payload :
   void InternalSwap(Payload* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Payload";
+    return "message.Payload";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -400,28 +403,28 @@ class Payload :
   std::string* _internal_mutable_payload();
   public:
 
-  // .VisitorProperty property = 1;
+  // .message.VisitorProperty property = 1;
   bool has_property() const;
   private:
   bool _internal_has_property() const;
   public:
   void clear_property();
-  const ::VisitorProperty& property() const;
-  ::VisitorProperty* release_property();
-  ::VisitorProperty* mutable_property();
-  void set_allocated_property(::VisitorProperty* property);
+  const ::message::VisitorProperty& property() const;
+  ::message::VisitorProperty* release_property();
+  ::message::VisitorProperty* mutable_property();
+  void set_allocated_property(::message::VisitorProperty* property);
   private:
-  const ::VisitorProperty& _internal_property() const;
-  ::VisitorProperty* _internal_mutable_property();
+  const ::message::VisitorProperty& _internal_property() const;
+  ::message::VisitorProperty* _internal_mutable_property();
   public:
 
-  // @@protoc_insertion_point(class_scope:Payload)
+  // @@protoc_insertion_point(class_scope:message.Payload)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
-  ::VisitorProperty* property_;
+  ::message::VisitorProperty* property_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_message_2eproto;
 };
@@ -436,24 +439,24 @@ class Payload :
 #endif  // __GNUC__
 // VisitorProperty
 
-// .VisitorType type = 1;
+// .message.VisitorType type = 1;
 inline void VisitorProperty::clear_type() {
   type_ = 0;
 }
-inline ::VisitorType VisitorProperty::_internal_type() const {
-  return static_cast< ::VisitorType >(type_);
+inline ::message::VisitorType VisitorProperty::_internal_type() const {
+  return static_cast< ::message::VisitorType >(type_);
 }
-inline ::VisitorType VisitorProperty::type() const {
-  // @@protoc_insertion_point(field_get:VisitorProperty.type)
+inline ::message::VisitorType VisitorProperty::type() const {
+  // @@protoc_insertion_point(field_get:message.VisitorProperty.type)
   return _internal_type();
 }
-inline void VisitorProperty::_internal_set_type(::VisitorType value) {
+inline void VisitorProperty::_internal_set_type(::message::VisitorType value) {
   
   type_ = value;
 }
-inline void VisitorProperty::set_type(::VisitorType value) {
+inline void VisitorProperty::set_type(::message::VisitorType value) {
   _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:VisitorProperty.type)
+  // @@protoc_insertion_point(field_set:message.VisitorProperty.type)
 }
 
 // string category = 2;
@@ -461,15 +464,15 @@ inline void VisitorProperty::clear_category() {
   category_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline const std::string& VisitorProperty::category() const {
-  // @@protoc_insertion_point(field_get:VisitorProperty.category)
+  // @@protoc_insertion_point(field_get:message.VisitorProperty.category)
   return _internal_category();
 }
 inline void VisitorProperty::set_category(const std::string& value) {
   _internal_set_category(value);
-  // @@protoc_insertion_point(field_set:VisitorProperty.category)
+  // @@protoc_insertion_point(field_set:message.VisitorProperty.category)
 }
 inline std::string* VisitorProperty::mutable_category() {
-  // @@protoc_insertion_point(field_mutable:VisitorProperty.category)
+  // @@protoc_insertion_point(field_mutable:message.VisitorProperty.category)
   return _internal_mutable_category();
 }
 inline const std::string& VisitorProperty::_internal_category() const {
@@ -483,26 +486,26 @@ inline void VisitorProperty::set_category(std::string&& value) {
   
   category_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:VisitorProperty.category)
+  // @@protoc_insertion_point(field_set_rvalue:message.VisitorProperty.category)
 }
 inline void VisitorProperty::set_category(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   category_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:VisitorProperty.category)
+  // @@protoc_insertion_point(field_set_char:message.VisitorProperty.category)
 }
 inline void VisitorProperty::set_category(const char* value, size_t size) {
   
   category_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:VisitorProperty.category)
+  // @@protoc_insertion_point(field_set_pointer:message.VisitorProperty.category)
 }
 inline std::string* VisitorProperty::_internal_mutable_category() {
   
   return category_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline std::string* VisitorProperty::release_category() {
-  // @@protoc_insertion_point(field_release:VisitorProperty.category)
+  // @@protoc_insertion_point(field_release:message.VisitorProperty.category)
   
   return category_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -513,7 +516,7 @@ inline void VisitorProperty::set_allocated_category(std::string* category) {
     
   }
   category_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), category);
-  // @@protoc_insertion_point(field_set_allocated:VisitorProperty.category)
+  // @@protoc_insertion_point(field_set_allocated:message.VisitorProperty.category)
 }
 
 // string topic = 3;
@@ -521,15 +524,15 @@ inline void VisitorProperty::clear_topic() {
   topic_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline const std::string& VisitorProperty::topic() const {
-  // @@protoc_insertion_point(field_get:VisitorProperty.topic)
+  // @@protoc_insertion_point(field_get:message.VisitorProperty.topic)
   return _internal_topic();
 }
 inline void VisitorProperty::set_topic(const std::string& value) {
   _internal_set_topic(value);
-  // @@protoc_insertion_point(field_set:VisitorProperty.topic)
+  // @@protoc_insertion_point(field_set:message.VisitorProperty.topic)
 }
 inline std::string* VisitorProperty::mutable_topic() {
-  // @@protoc_insertion_point(field_mutable:VisitorProperty.topic)
+  // @@protoc_insertion_point(field_mutable:message.VisitorProperty.topic)
   return _internal_mutable_topic();
 }
 inline const std::string& VisitorProperty::_internal_topic() const {
@@ -543,26 +546,26 @@ inline void VisitorProperty::set_topic(std::string&& value) {
   
   topic_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:VisitorProperty.topic)
+  // @@protoc_insertion_point(field_set_rvalue:message.VisitorProperty.topic)
 }
 inline void VisitorProperty::set_topic(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   topic_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:VisitorProperty.topic)
+  // @@protoc_insertion_point(field_set_char:message.VisitorProperty.topic)
 }
 inline void VisitorProperty::set_topic(const char* value, size_t size) {
   
   topic_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:VisitorProperty.topic)
+  // @@protoc_insertion_point(field_set_pointer:message.VisitorProperty.topic)
 }
 inline std::string* VisitorProperty::_internal_mutable_topic() {
   
   return topic_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline std::string* VisitorProperty::release_topic() {
-  // @@protoc_insertion_point(field_release:VisitorProperty.topic)
+  // @@protoc_insertion_point(field_release:message.VisitorProperty.topic)
   
   return topic_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -573,7 +576,7 @@ inline void VisitorProperty::set_allocated_topic(std::string* topic) {
     
   }
   topic_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), topic);
-  // @@protoc_insertion_point(field_set_allocated:VisitorProperty.topic)
+  // @@protoc_insertion_point(field_set_allocated:message.VisitorProperty.topic)
 }
 
 // string extension = 4;
@@ -581,15 +584,15 @@ inline void VisitorProperty::clear_extension() {
   extension_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline const std::string& VisitorProperty::extension() const {
-  // @@protoc_insertion_point(field_get:VisitorProperty.extension)
+  // @@protoc_insertion_point(field_get:message.VisitorProperty.extension)
   return _internal_extension();
 }
 inline void VisitorProperty::set_extension(const std::string& value) {
   _internal_set_extension(value);
-  // @@protoc_insertion_point(field_set:VisitorProperty.extension)
+  // @@protoc_insertion_point(field_set:message.VisitorProperty.extension)
 }
 inline std::string* VisitorProperty::mutable_extension() {
-  // @@protoc_insertion_point(field_mutable:VisitorProperty.extension)
+  // @@protoc_insertion_point(field_mutable:message.VisitorProperty.extension)
   return _internal_mutable_extension();
 }
 inline const std::string& VisitorProperty::_internal_extension() const {
@@ -603,26 +606,26 @@ inline void VisitorProperty::set_extension(std::string&& value) {
   
   extension_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:VisitorProperty.extension)
+  // @@protoc_insertion_point(field_set_rvalue:message.VisitorProperty.extension)
 }
 inline void VisitorProperty::set_extension(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   extension_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:VisitorProperty.extension)
+  // @@protoc_insertion_point(field_set_char:message.VisitorProperty.extension)
 }
 inline void VisitorProperty::set_extension(const char* value, size_t size) {
   
   extension_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:VisitorProperty.extension)
+  // @@protoc_insertion_point(field_set_pointer:message.VisitorProperty.extension)
 }
 inline std::string* VisitorProperty::_internal_mutable_extension() {
   
   return extension_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline std::string* VisitorProperty::release_extension() {
-  // @@protoc_insertion_point(field_release:VisitorProperty.extension)
+  // @@protoc_insertion_point(field_release:message.VisitorProperty.extension)
   
   return extension_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -633,14 +636,14 @@ inline void VisitorProperty::set_allocated_extension(std::string* extension) {
     
   }
   extension_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), extension);
-  // @@protoc_insertion_point(field_set_allocated:VisitorProperty.extension)
+  // @@protoc_insertion_point(field_set_allocated:message.VisitorProperty.extension)
 }
 
 // -------------------------------------------------------------------
 
 // Payload
 
-// .VisitorProperty property = 1;
+// .message.VisitorProperty property = 1;
 inline bool Payload::_internal_has_property() const {
   return this != internal_default_instance() && property_ != nullptr;
 }
@@ -653,35 +656,35 @@ inline void Payload::clear_property() {
   }
   property_ = nullptr;
 }
-inline const ::VisitorProperty& Payload::_internal_property() const {
-  const ::VisitorProperty* p = property_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::VisitorProperty*>(
-      &::_VisitorProperty_default_instance_);
+inline const ::message::VisitorProperty& Payload::_internal_property() const {
+  const ::message::VisitorProperty* p = property_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::message::VisitorProperty*>(
+      &::message::_VisitorProperty_default_instance_);
 }
-inline const ::VisitorProperty& Payload::property() const {
-  // @@protoc_insertion_point(field_get:Payload.property)
+inline const ::message::VisitorProperty& Payload::property() const {
+  // @@protoc_insertion_point(field_get:message.Payload.property)
   return _internal_property();
 }
-inline ::VisitorProperty* Payload::release_property() {
-  // @@protoc_insertion_point(field_release:Payload.property)
+inline ::message::VisitorProperty* Payload::release_property() {
+  // @@protoc_insertion_point(field_release:message.Payload.property)
   
-  ::VisitorProperty* temp = property_;
+  ::message::VisitorProperty* temp = property_;
   property_ = nullptr;
   return temp;
 }
-inline ::VisitorProperty* Payload::_internal_mutable_property() {
+inline ::message::VisitorProperty* Payload::_internal_mutable_property() {
   
   if (property_ == nullptr) {
-    auto* p = CreateMaybeMessage<::VisitorProperty>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::message::VisitorProperty>(GetArenaNoVirtual());
     property_ = p;
   }
   return property_;
 }
-inline ::VisitorProperty* Payload::mutable_property() {
-  // @@protoc_insertion_point(field_mutable:Payload.property)
+inline ::message::VisitorProperty* Payload::mutable_property() {
+  // @@protoc_insertion_point(field_mutable:message.Payload.property)
   return _internal_mutable_property();
 }
-inline void Payload::set_allocated_property(::VisitorProperty* property) {
+inline void Payload::set_allocated_property(::message::VisitorProperty* property) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete property_;
@@ -697,7 +700,7 @@ inline void Payload::set_allocated_property(::VisitorProperty* property) {
     
   }
   property_ = property;
-  // @@protoc_insertion_point(field_set_allocated:Payload.property)
+  // @@protoc_insertion_point(field_set_allocated:message.Payload.property)
 }
 
 // string payload = 2;
@@ -705,15 +708,15 @@ inline void Payload::clear_payload() {
   payload_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline const std::string& Payload::payload() const {
-  // @@protoc_insertion_point(field_get:Payload.payload)
+  // @@protoc_insertion_point(field_get:message.Payload.payload)
   return _internal_payload();
 }
 inline void Payload::set_payload(const std::string& value) {
   _internal_set_payload(value);
-  // @@protoc_insertion_point(field_set:Payload.payload)
+  // @@protoc_insertion_point(field_set:message.Payload.payload)
 }
 inline std::string* Payload::mutable_payload() {
-  // @@protoc_insertion_point(field_mutable:Payload.payload)
+  // @@protoc_insertion_point(field_mutable:message.Payload.payload)
   return _internal_mutable_payload();
 }
 inline const std::string& Payload::_internal_payload() const {
@@ -727,26 +730,26 @@ inline void Payload::set_payload(std::string&& value) {
   
   payload_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:Payload.payload)
+  // @@protoc_insertion_point(field_set_rvalue:message.Payload.payload)
 }
 inline void Payload::set_payload(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   payload_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Payload.payload)
+  // @@protoc_insertion_point(field_set_char:message.Payload.payload)
 }
 inline void Payload::set_payload(const char* value, size_t size) {
   
   payload_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Payload.payload)
+  // @@protoc_insertion_point(field_set_pointer:message.Payload.payload)
 }
 inline std::string* Payload::_internal_mutable_payload() {
   
   return payload_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline std::string* Payload::release_payload() {
-  // @@protoc_insertion_point(field_release:Payload.payload)
+  // @@protoc_insertion_point(field_release:message.Payload.payload)
   
   return payload_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -757,7 +760,7 @@ inline void Payload::set_allocated_payload(std::string* payload) {
     
   }
   payload_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), payload);
-  // @@protoc_insertion_point(field_set_allocated:Payload.payload)
+  // @@protoc_insertion_point(field_set_allocated:message.Payload.payload)
 }
 
 #ifdef __GNUC__
@@ -768,13 +771,14 @@ inline void Payload::set_allocated_payload(std::string* payload) {
 
 // @@protoc_insertion_point(namespace_scope)
 
+}  // namespace message
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::VisitorType> : ::std::true_type {};
+template <> struct is_proto_enum< ::message::VisitorType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::VisitorType>() {
-  return ::VisitorType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::message::VisitorType>() {
+  return ::message::VisitorType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

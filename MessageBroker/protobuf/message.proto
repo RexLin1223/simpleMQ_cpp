@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package message;
+
 enum VisitorType {
 	Publisher = 0;
 	Subscriber = 1;

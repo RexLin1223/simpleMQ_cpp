@@ -15,6 +15,7 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_message_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VisitorProperty_message_2eproto;
+namespace message {
 class VisitorPropertyDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<VisitorProperty> _instance;
@@ -23,15 +24,16 @@ class PayloadDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Payload> _instance;
 } _Payload_default_instance_;
+}  // namespace message
 static void InitDefaultsscc_info_Payload_message_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_Payload_default_instance_;
-    new (ptr) ::Payload();
+    void* ptr = &::message::_Payload_default_instance_;
+    new (ptr) ::message::Payload();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::Payload::InitAsDefaultInstance();
+  ::message::Payload::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Payload_message_2eproto =
@@ -42,11 +44,11 @@ static void InitDefaultsscc_info_VisitorProperty_message_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_VisitorProperty_default_instance_;
-    new (ptr) ::VisitorProperty();
+    void* ptr = &::message::_VisitorProperty_default_instance_;
+    new (ptr) ::message::VisitorProperty();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::VisitorProperty::InitAsDefaultInstance();
+  ::message::VisitorProperty::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VisitorProperty_message_2eproto =
@@ -58,39 +60,40 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_s
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_message_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::VisitorProperty, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::message::VisitorProperty, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::VisitorProperty, type_),
-  PROTOBUF_FIELD_OFFSET(::VisitorProperty, category_),
-  PROTOBUF_FIELD_OFFSET(::VisitorProperty, topic_),
-  PROTOBUF_FIELD_OFFSET(::VisitorProperty, extension_),
+  PROTOBUF_FIELD_OFFSET(::message::VisitorProperty, type_),
+  PROTOBUF_FIELD_OFFSET(::message::VisitorProperty, category_),
+  PROTOBUF_FIELD_OFFSET(::message::VisitorProperty, topic_),
+  PROTOBUF_FIELD_OFFSET(::message::VisitorProperty, extension_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Payload, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::message::Payload, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Payload, property_),
-  PROTOBUF_FIELD_OFFSET(::Payload, payload_),
+  PROTOBUF_FIELD_OFFSET(::message::Payload, property_),
+  PROTOBUF_FIELD_OFFSET(::message::Payload, payload_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::VisitorProperty)},
-  { 9, -1, sizeof(::Payload)},
+  { 0, -1, sizeof(::message::VisitorProperty)},
+  { 9, -1, sizeof(::message::Payload)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_VisitorProperty_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_Payload_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::message::_VisitorProperty_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::message::_Payload_default_instance_),
 };
 
 const char descriptor_table_protodef_message_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\rmessage.proto\"a\n\017VisitorProperty\022\032\n\004ty"
-  "pe\030\001 \001(\0162\014.VisitorType\022\020\n\010category\030\002 \001(\t"
-  "\022\r\n\005topic\030\003 \001(\t\022\021\n\textension\030\004 \001(\t\">\n\007Pa"
-  "yload\022\"\n\010property\030\001 \001(\0132\020.VisitorPropert"
-  "y\022\017\n\007payload\030\002 \001(\t*,\n\013VisitorType\022\r\n\tPub"
-  "lisher\020\000\022\016\n\nSubscriber\020\001b\006proto3"
+  "\n\rmessage.proto\022\007message\"i\n\017VisitorPrope"
+  "rty\022\"\n\004type\030\001 \001(\0162\024.message.VisitorType\022"
+  "\020\n\010category\030\002 \001(\t\022\r\n\005topic\030\003 \001(\t\022\021\n\texte"
+  "nsion\030\004 \001(\t\"F\n\007Payload\022*\n\010property\030\001 \001(\013"
+  "2\030.message.VisitorProperty\022\017\n\007payload\030\002 "
+  "\001(\t*,\n\013VisitorType\022\r\n\tPublisher\020\000\022\016\n\nSub"
+  "scriber\020\001b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_message_2eproto_deps[1] = {
 };
@@ -101,7 +104,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_mes
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_message_2eproto_once;
 static bool descriptor_table_message_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_message_2eproto = {
-  &descriptor_table_message_2eproto_initialized, descriptor_table_protodef_message_2eproto, "message.proto", 232,
+  &descriptor_table_message_2eproto_initialized, descriptor_table_protodef_message_2eproto, "message.proto", 257,
   &descriptor_table_message_2eproto_once, descriptor_table_message_2eproto_sccs, descriptor_table_message_2eproto_deps, 2, 0,
   schemas, file_default_instances, TableStruct_message_2eproto::offsets,
   file_level_metadata_message_2eproto, 2, file_level_enum_descriptors_message_2eproto, file_level_service_descriptors_message_2eproto,
@@ -109,6 +112,7 @@ const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_messag
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_message_2eproto = (  ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_message_2eproto), true);
+namespace message {
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* VisitorType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_message_2eproto);
   return file_level_enum_descriptors_message_2eproto[0];
@@ -135,7 +139,7 @@ class VisitorProperty::_Internal {
 VisitorProperty::VisitorProperty()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:VisitorProperty)
+  // @@protoc_insertion_point(constructor:message.VisitorProperty)
 }
 VisitorProperty::VisitorProperty(const VisitorProperty& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
@@ -154,7 +158,7 @@ VisitorProperty::VisitorProperty(const VisitorProperty& from)
     extension_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.extension_);
   }
   type_ = from.type_;
-  // @@protoc_insertion_point(copy_constructor:VisitorProperty)
+  // @@protoc_insertion_point(copy_constructor:message.VisitorProperty)
 }
 
 void VisitorProperty::SharedCtor() {
@@ -166,7 +170,7 @@ void VisitorProperty::SharedCtor() {
 }
 
 VisitorProperty::~VisitorProperty() {
-  // @@protoc_insertion_point(destructor:VisitorProperty)
+  // @@protoc_insertion_point(destructor:message.VisitorProperty)
   SharedDtor();
 }
 
@@ -186,7 +190,7 @@ const VisitorProperty& VisitorProperty::default_instance() {
 
 
 void VisitorProperty::Clear() {
-// @@protoc_insertion_point(message_clear_start:VisitorProperty)
+// @@protoc_insertion_point(message_clear_start:message.VisitorProperty)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -205,32 +209,32 @@ const char* VisitorProperty::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .VisitorType type = 1;
+      // .message.VisitorType type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
-          _internal_set_type(static_cast<::VisitorType>(val));
+          _internal_set_type(static_cast<::message::VisitorType>(val));
         } else goto handle_unusual;
         continue;
       // string category = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_category(), ptr, ctx, "VisitorProperty.category");
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_category(), ptr, ctx, "message.VisitorProperty.category");
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string topic = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_topic(), ptr, ctx, "VisitorProperty.topic");
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_topic(), ptr, ctx, "message.VisitorProperty.topic");
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string extension = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_extension(), ptr, ctx, "VisitorProperty.extension");
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_extension(), ptr, ctx, "message.VisitorProperty.extension");
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -256,11 +260,11 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* VisitorProperty::InternalSerializeWithCachedSizesToArray(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:VisitorProperty)
+  // @@protoc_insertion_point(serialize_to_array_start:message.VisitorProperty)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .VisitorType type = 1;
+  // .message.VisitorType type = 1;
   if (this->type() != 0) {
     stream->EnsureSpace(&target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -272,7 +276,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_category().data(), static_cast<int>(this->_internal_category().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "VisitorProperty.category");
+      "message.VisitorProperty.category");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_category(), target);
   }
@@ -282,7 +286,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_topic().data(), static_cast<int>(this->_internal_topic().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "VisitorProperty.topic");
+      "message.VisitorProperty.topic");
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_topic(), target);
   }
@@ -292,7 +296,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_extension().data(), static_cast<int>(this->_internal_extension().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "VisitorProperty.extension");
+      "message.VisitorProperty.extension");
     target = stream->WriteStringMaybeAliased(
         4, this->_internal_extension(), target);
   }
@@ -301,12 +305,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:VisitorProperty)
+  // @@protoc_insertion_point(serialize_to_array_end:message.VisitorProperty)
   return target;
 }
 
 size_t VisitorProperty::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:VisitorProperty)
+// @@protoc_insertion_point(message_byte_size_start:message.VisitorProperty)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -334,7 +338,7 @@ size_t VisitorProperty::ByteSizeLong() const {
         this->_internal_extension());
   }
 
-  // .VisitorType type = 1;
+  // .message.VisitorType type = 1;
   if (this->type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
@@ -350,22 +354,22 @@ size_t VisitorProperty::ByteSizeLong() const {
 }
 
 void VisitorProperty::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:VisitorProperty)
+// @@protoc_insertion_point(generalized_merge_from_start:message.VisitorProperty)
   GOOGLE_DCHECK_NE(&from, this);
   const VisitorProperty* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<VisitorProperty>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:VisitorProperty)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:message.VisitorProperty)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:VisitorProperty)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:message.VisitorProperty)
     MergeFrom(*source);
   }
 }
 
 void VisitorProperty::MergeFrom(const VisitorProperty& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:VisitorProperty)
+// @@protoc_insertion_point(class_specific_merge_from_start:message.VisitorProperty)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -389,14 +393,14 @@ void VisitorProperty::MergeFrom(const VisitorProperty& from) {
 }
 
 void VisitorProperty::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:VisitorProperty)
+// @@protoc_insertion_point(generalized_copy_from_start:message.VisitorProperty)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void VisitorProperty::CopyFrom(const VisitorProperty& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:VisitorProperty)
+// @@protoc_insertion_point(class_specific_copy_from_start:message.VisitorProperty)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -426,22 +430,22 @@ void VisitorProperty::InternalSwap(VisitorProperty* other) {
 // ===================================================================
 
 void Payload::InitAsDefaultInstance() {
-  ::_Payload_default_instance_._instance.get_mutable()->property_ = const_cast< ::VisitorProperty*>(
-      ::VisitorProperty::internal_default_instance());
+  ::message::_Payload_default_instance_._instance.get_mutable()->property_ = const_cast< ::message::VisitorProperty*>(
+      ::message::VisitorProperty::internal_default_instance());
 }
 class Payload::_Internal {
  public:
-  static const ::VisitorProperty& property(const Payload* msg);
+  static const ::message::VisitorProperty& property(const Payload* msg);
 };
 
-const ::VisitorProperty&
+const ::message::VisitorProperty&
 Payload::_Internal::property(const Payload* msg) {
   return *msg->property_;
 }
 Payload::Payload()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Payload)
+  // @@protoc_insertion_point(constructor:message.Payload)
 }
 Payload::Payload(const Payload& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
@@ -452,11 +456,11 @@ Payload::Payload(const Payload& from)
     payload_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.payload_);
   }
   if (from._internal_has_property()) {
-    property_ = new ::VisitorProperty(*from.property_);
+    property_ = new ::message::VisitorProperty(*from.property_);
   } else {
     property_ = nullptr;
   }
-  // @@protoc_insertion_point(copy_constructor:Payload)
+  // @@protoc_insertion_point(copy_constructor:message.Payload)
 }
 
 void Payload::SharedCtor() {
@@ -466,7 +470,7 @@ void Payload::SharedCtor() {
 }
 
 Payload::~Payload() {
-  // @@protoc_insertion_point(destructor:Payload)
+  // @@protoc_insertion_point(destructor:message.Payload)
   SharedDtor();
 }
 
@@ -485,7 +489,7 @@ const Payload& Payload::default_instance() {
 
 
 void Payload::Clear() {
-// @@protoc_insertion_point(message_clear_start:Payload)
+// @@protoc_insertion_point(message_clear_start:message.Payload)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -505,7 +509,7 @@ const char* Payload::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .VisitorProperty property = 1;
+      // .message.VisitorProperty property = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_property(), ptr);
@@ -515,7 +519,7 @@ const char* Payload::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
       // string payload = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_payload(), ptr, ctx, "Payload.payload");
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_payload(), ptr, ctx, "message.Payload.payload");
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -541,11 +545,11 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* Payload::InternalSerializeWithCachedSizesToArray(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Payload)
+  // @@protoc_insertion_point(serialize_to_array_start:message.Payload)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .VisitorProperty property = 1;
+  // .message.VisitorProperty property = 1;
   if (this->has_property()) {
     stream->EnsureSpace(&target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -558,7 +562,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_payload().data(), static_cast<int>(this->_internal_payload().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "Payload.payload");
+      "message.Payload.payload");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_payload(), target);
   }
@@ -567,12 +571,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Payload)
+  // @@protoc_insertion_point(serialize_to_array_end:message.Payload)
   return target;
 }
 
 size_t Payload::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Payload)
+// @@protoc_insertion_point(message_byte_size_start:message.Payload)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -586,7 +590,7 @@ size_t Payload::ByteSizeLong() const {
         this->_internal_payload());
   }
 
-  // .VisitorProperty property = 1;
+  // .message.VisitorProperty property = 1;
   if (this->has_property()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -603,22 +607,22 @@ size_t Payload::ByteSizeLong() const {
 }
 
 void Payload::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Payload)
+// @@protoc_insertion_point(generalized_merge_from_start:message.Payload)
   GOOGLE_DCHECK_NE(&from, this);
   const Payload* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Payload>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Payload)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:message.Payload)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Payload)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:message.Payload)
     MergeFrom(*source);
   }
 }
 
 void Payload::MergeFrom(const Payload& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Payload)
+// @@protoc_insertion_point(class_specific_merge_from_start:message.Payload)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -629,19 +633,19 @@ void Payload::MergeFrom(const Payload& from) {
     payload_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.payload_);
   }
   if (from.has_property()) {
-    _internal_mutable_property()->::VisitorProperty::MergeFrom(from._internal_property());
+    _internal_mutable_property()->::message::VisitorProperty::MergeFrom(from._internal_property());
   }
 }
 
 void Payload::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Payload)
+// @@protoc_insertion_point(generalized_copy_from_start:message.Payload)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Payload::CopyFrom(const Payload& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Payload)
+// @@protoc_insertion_point(class_specific_copy_from_start:message.Payload)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -665,12 +669,13 @@ void Payload::InternalSwap(Payload* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
+}  // namespace message
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::VisitorProperty* Arena::CreateMaybeMessage< ::VisitorProperty >(Arena* arena) {
-  return Arena::CreateInternal< ::VisitorProperty >(arena);
+template<> PROTOBUF_NOINLINE ::message::VisitorProperty* Arena::CreateMaybeMessage< ::message::VisitorProperty >(Arena* arena) {
+  return Arena::CreateInternal< ::message::VisitorProperty >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Payload* Arena::CreateMaybeMessage< ::Payload >(Arena* arena) {
-  return Arena::CreateInternal< ::Payload >(arena);
+template<> PROTOBUF_NOINLINE ::message::Payload* Arena::CreateMaybeMessage< ::message::Payload >(Arena* arena) {
+  return Arena::CreateInternal< ::message::Payload >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
