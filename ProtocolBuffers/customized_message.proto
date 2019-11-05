@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package message;
+
+enum VisitorType {
+	Publisher = 0;
+	Subscriber = 1;
+}
+
+message VisitorProperty {
+	VisitorType type = 1;
+	string category = 2;
+	string topic = 3;
+	string extension = 4;
+}
+
+message Payload {
+	VisitorProperty property = 1;
+	string payload = 2;
+}

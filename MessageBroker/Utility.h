@@ -7,7 +7,6 @@
 #include <boost/uuid/uuid_io.hpp>
 #include <boost/lexical_cast.hpp>
 
-
 namespace message {
 	using OnError = std::function<void(const std::string&)>;
 	using OnClose = std::function<void()>;

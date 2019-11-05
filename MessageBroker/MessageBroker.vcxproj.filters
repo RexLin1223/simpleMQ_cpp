@@ -22,9 +22,6 @@
     <Filter Include="Visitor">
       <UniqueIdentifier>{1a93d5cc-2e57-4ebd-b860-638befee3043}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ProtoBuffer">
-      <UniqueIdentifier>{d1ddb406-86fc-443f-ad38-5ba96dda2516}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MessageStorage">
       <UniqueIdentifier>{be47aad8-195a-4829-ab15-e649de7a3385}</UniqueIdentifier>
     </Filter>

@@ -1,4 +1,5 @@
 #include "RequestHandler.h"
+#include "message.pb.h"
 
 namespace message {
 
