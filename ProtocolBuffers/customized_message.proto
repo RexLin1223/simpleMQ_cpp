@@ -14,7 +14,11 @@ message VisitorProperty {
 	string extension = 4;
 }
 
-message Payload {
-	VisitorProperty property = 1;
+message PublisherMessage {
+	VisitorProperty properties = 1;
 	string payload = 2;
+}
+
+message SubscriberMessage {
+	VisitorProperty properties = 1;
 }

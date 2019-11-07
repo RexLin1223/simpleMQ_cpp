@@ -48,7 +48,7 @@ struct TableStruct_customized_5fmessage_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -56,15 +56,19 @@ struct TableStruct_customized_5fmessage_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_customized_5fmessage_2eproto;
 namespace message {
-class Payload;
-class PayloadDefaultTypeInternal;
-extern PayloadDefaultTypeInternal _Payload_default_instance_;
+class PublisherMessage;
+class PublisherMessageDefaultTypeInternal;
+extern PublisherMessageDefaultTypeInternal _PublisherMessage_default_instance_;
+class SubscriberMessage;
+class SubscriberMessageDefaultTypeInternal;
+extern SubscriberMessageDefaultTypeInternal _SubscriberMessage_default_instance_;
 class VisitorProperty;
 class VisitorPropertyDefaultTypeInternal;
 extern VisitorPropertyDefaultTypeInternal _VisitorProperty_default_instance_;
 }  // namespace message
 PROTOBUF_NAMESPACE_OPEN
-template<> ::message::Payload* Arena::CreateMaybeMessage<::message::Payload>(Arena*);
+template<> ::message::PublisherMessage* Arena::CreateMaybeMessage<::message::PublisherMessage>(Arena*);
+template<> ::message::SubscriberMessage* Arena::CreateMaybeMessage<::message::SubscriberMessage>(Arena*);
 template<> ::message::VisitorProperty* Arena::CreateMaybeMessage<::message::VisitorProperty>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace message {
@@ -278,23 +282,23 @@ class VisitorProperty :
 };
 // -------------------------------------------------------------------
 
-class Payload :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:message.Payload) */ {
+class PublisherMessage :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:message.PublisherMessage) */ {
  public:
-  Payload();
-  virtual ~Payload();
+  PublisherMessage();
+  virtual ~PublisherMessage();
 
-  Payload(const Payload& from);
-  Payload(Payload&& from) noexcept
-    : Payload() {
+  PublisherMessage(const PublisherMessage& from);
+  PublisherMessage(PublisherMessage&& from) noexcept
+    : PublisherMessage() {
     *this = ::std::move(from);
   }
 
-  inline Payload& operator=(const Payload& from) {
+  inline PublisherMessage& operator=(const PublisherMessage& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Payload& operator=(Payload&& from) noexcept {
+  inline PublisherMessage& operator=(PublisherMessage&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -312,37 +316,37 @@ class Payload :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Payload& default_instance();
+  static const PublisherMessage& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const Payload* internal_default_instance() {
-    return reinterpret_cast<const Payload*>(
-               &_Payload_default_instance_);
+  static inline const PublisherMessage* internal_default_instance() {
+    return reinterpret_cast<const PublisherMessage*>(
+               &_PublisherMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(Payload& a, Payload& b) {
+  friend void swap(PublisherMessage& a, PublisherMessage& b) {
     a.Swap(&b);
   }
-  inline void Swap(Payload* other) {
+  inline void Swap(PublisherMessage* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline Payload* New() const final {
-    return CreateMaybeMessage<Payload>(nullptr);
+  inline PublisherMessage* New() const final {
+    return CreateMaybeMessage<PublisherMessage>(nullptr);
   }
 
-  Payload* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Payload>(arena);
+  PublisherMessage* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PublisherMessage>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Payload& from);
-  void MergeFrom(const Payload& from);
+  void CopyFrom(const PublisherMessage& from);
+  void MergeFrom(const PublisherMessage& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -356,10 +360,10 @@ class Payload :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Payload* other);
+  void InternalSwap(PublisherMessage* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "message.Payload";
+    return "message.PublisherMessage";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -385,7 +389,7 @@ class Payload :
 
   enum : int {
     kPayloadFieldNumber = 2,
-    kPropertyFieldNumber = 1,
+    kPropertiesFieldNumber = 1,
   };
   // string payload = 2;
   void clear_payload();
@@ -403,28 +407,162 @@ class Payload :
   std::string* _internal_mutable_payload();
   public:
 
-  // .message.VisitorProperty property = 1;
-  bool has_property() const;
+  // .message.VisitorProperty properties = 1;
+  bool has_properties() const;
   private:
-  bool _internal_has_property() const;
+  bool _internal_has_properties() const;
   public:
-  void clear_property();
-  const ::message::VisitorProperty& property() const;
-  ::message::VisitorProperty* release_property();
-  ::message::VisitorProperty* mutable_property();
-  void set_allocated_property(::message::VisitorProperty* property);
+  void clear_properties();
+  const ::message::VisitorProperty& properties() const;
+  ::message::VisitorProperty* release_properties();
+  ::message::VisitorProperty* mutable_properties();
+  void set_allocated_properties(::message::VisitorProperty* properties);
   private:
-  const ::message::VisitorProperty& _internal_property() const;
-  ::message::VisitorProperty* _internal_mutable_property();
+  const ::message::VisitorProperty& _internal_properties() const;
+  ::message::VisitorProperty* _internal_mutable_properties();
   public:
 
-  // @@protoc_insertion_point(class_scope:message.Payload)
+  // @@protoc_insertion_point(class_scope:message.PublisherMessage)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
-  ::message::VisitorProperty* property_;
+  ::message::VisitorProperty* properties_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_customized_5fmessage_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SubscriberMessage :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:message.SubscriberMessage) */ {
+ public:
+  SubscriberMessage();
+  virtual ~SubscriberMessage();
+
+  SubscriberMessage(const SubscriberMessage& from);
+  SubscriberMessage(SubscriberMessage&& from) noexcept
+    : SubscriberMessage() {
+    *this = ::std::move(from);
+  }
+
+  inline SubscriberMessage& operator=(const SubscriberMessage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SubscriberMessage& operator=(SubscriberMessage&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const SubscriberMessage& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SubscriberMessage* internal_default_instance() {
+    return reinterpret_cast<const SubscriberMessage*>(
+               &_SubscriberMessage_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(SubscriberMessage& a, SubscriberMessage& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SubscriberMessage* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SubscriberMessage* New() const final {
+    return CreateMaybeMessage<SubscriberMessage>(nullptr);
+  }
+
+  SubscriberMessage* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SubscriberMessage>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const SubscriberMessage& from);
+  void MergeFrom(const SubscriberMessage& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SubscriberMessage* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "message.SubscriberMessage";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_customized_5fmessage_2eproto);
+    return ::descriptor_table_customized_5fmessage_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPropertiesFieldNumber = 1,
+  };
+  // .message.VisitorProperty properties = 1;
+  bool has_properties() const;
+  private:
+  bool _internal_has_properties() const;
+  public:
+  void clear_properties();
+  const ::message::VisitorProperty& properties() const;
+  ::message::VisitorProperty* release_properties();
+  ::message::VisitorProperty* mutable_properties();
+  void set_allocated_properties(::message::VisitorProperty* properties);
+  private:
+  const ::message::VisitorProperty& _internal_properties() const;
+  ::message::VisitorProperty* _internal_mutable_properties();
+  public:
+
+  // @@protoc_insertion_point(class_scope:message.SubscriberMessage)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::message::VisitorProperty* properties_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_customized_5fmessage_2eproto;
 };
@@ -641,131 +779,197 @@ inline void VisitorProperty::set_allocated_extension(std::string* extension) {
 
 // -------------------------------------------------------------------
 
-// Payload
+// PublisherMessage
 
-// .message.VisitorProperty property = 1;
-inline bool Payload::_internal_has_property() const {
-  return this != internal_default_instance() && property_ != nullptr;
+// .message.VisitorProperty properties = 1;
+inline bool PublisherMessage::_internal_has_properties() const {
+  return this != internal_default_instance() && properties_ != nullptr;
 }
-inline bool Payload::has_property() const {
-  return _internal_has_property();
+inline bool PublisherMessage::has_properties() const {
+  return _internal_has_properties();
 }
-inline void Payload::clear_property() {
-  if (GetArenaNoVirtual() == nullptr && property_ != nullptr) {
-    delete property_;
+inline void PublisherMessage::clear_properties() {
+  if (GetArenaNoVirtual() == nullptr && properties_ != nullptr) {
+    delete properties_;
   }
-  property_ = nullptr;
+  properties_ = nullptr;
 }
-inline const ::message::VisitorProperty& Payload::_internal_property() const {
-  const ::message::VisitorProperty* p = property_;
+inline const ::message::VisitorProperty& PublisherMessage::_internal_properties() const {
+  const ::message::VisitorProperty* p = properties_;
   return p != nullptr ? *p : *reinterpret_cast<const ::message::VisitorProperty*>(
       &::message::_VisitorProperty_default_instance_);
 }
-inline const ::message::VisitorProperty& Payload::property() const {
-  // @@protoc_insertion_point(field_get:message.Payload.property)
-  return _internal_property();
+inline const ::message::VisitorProperty& PublisherMessage::properties() const {
+  // @@protoc_insertion_point(field_get:message.PublisherMessage.properties)
+  return _internal_properties();
 }
-inline ::message::VisitorProperty* Payload::release_property() {
-  // @@protoc_insertion_point(field_release:message.Payload.property)
+inline ::message::VisitorProperty* PublisherMessage::release_properties() {
+  // @@protoc_insertion_point(field_release:message.PublisherMessage.properties)
   
-  ::message::VisitorProperty* temp = property_;
-  property_ = nullptr;
+  ::message::VisitorProperty* temp = properties_;
+  properties_ = nullptr;
   return temp;
 }
-inline ::message::VisitorProperty* Payload::_internal_mutable_property() {
+inline ::message::VisitorProperty* PublisherMessage::_internal_mutable_properties() {
   
-  if (property_ == nullptr) {
+  if (properties_ == nullptr) {
     auto* p = CreateMaybeMessage<::message::VisitorProperty>(GetArenaNoVirtual());
-    property_ = p;
+    properties_ = p;
   }
-  return property_;
+  return properties_;
 }
-inline ::message::VisitorProperty* Payload::mutable_property() {
-  // @@protoc_insertion_point(field_mutable:message.Payload.property)
-  return _internal_mutable_property();
+inline ::message::VisitorProperty* PublisherMessage::mutable_properties() {
+  // @@protoc_insertion_point(field_mutable:message.PublisherMessage.properties)
+  return _internal_mutable_properties();
 }
-inline void Payload::set_allocated_property(::message::VisitorProperty* property) {
+inline void PublisherMessage::set_allocated_properties(::message::VisitorProperty* properties) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
-    delete property_;
+    delete properties_;
   }
-  if (property) {
+  if (properties) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
     if (message_arena != submessage_arena) {
-      property = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, property, submessage_arena);
+      properties = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, properties, submessage_arena);
     }
     
   } else {
     
   }
-  property_ = property;
-  // @@protoc_insertion_point(field_set_allocated:message.Payload.property)
+  properties_ = properties;
+  // @@protoc_insertion_point(field_set_allocated:message.PublisherMessage.properties)
 }
 
 // string payload = 2;
-inline void Payload::clear_payload() {
+inline void PublisherMessage::clear_payload() {
   payload_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline const std::string& Payload::payload() const {
-  // @@protoc_insertion_point(field_get:message.Payload.payload)
+inline const std::string& PublisherMessage::payload() const {
+  // @@protoc_insertion_point(field_get:message.PublisherMessage.payload)
   return _internal_payload();
 }
-inline void Payload::set_payload(const std::string& value) {
+inline void PublisherMessage::set_payload(const std::string& value) {
   _internal_set_payload(value);
-  // @@protoc_insertion_point(field_set:message.Payload.payload)
+  // @@protoc_insertion_point(field_set:message.PublisherMessage.payload)
 }
-inline std::string* Payload::mutable_payload() {
-  // @@protoc_insertion_point(field_mutable:message.Payload.payload)
+inline std::string* PublisherMessage::mutable_payload() {
+  // @@protoc_insertion_point(field_mutable:message.PublisherMessage.payload)
   return _internal_mutable_payload();
 }
-inline const std::string& Payload::_internal_payload() const {
+inline const std::string& PublisherMessage::_internal_payload() const {
   return payload_.GetNoArena();
 }
-inline void Payload::_internal_set_payload(const std::string& value) {
+inline void PublisherMessage::_internal_set_payload(const std::string& value) {
   
   payload_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
 }
-inline void Payload::set_payload(std::string&& value) {
+inline void PublisherMessage::set_payload(std::string&& value) {
   
   payload_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:message.Payload.payload)
+  // @@protoc_insertion_point(field_set_rvalue:message.PublisherMessage.payload)
 }
-inline void Payload::set_payload(const char* value) {
+inline void PublisherMessage::set_payload(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   payload_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.Payload.payload)
+  // @@protoc_insertion_point(field_set_char:message.PublisherMessage.payload)
 }
-inline void Payload::set_payload(const char* value, size_t size) {
+inline void PublisherMessage::set_payload(const char* value, size_t size) {
   
   payload_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.Payload.payload)
+  // @@protoc_insertion_point(field_set_pointer:message.PublisherMessage.payload)
 }
-inline std::string* Payload::_internal_mutable_payload() {
+inline std::string* PublisherMessage::_internal_mutable_payload() {
   
   return payload_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline std::string* Payload::release_payload() {
-  // @@protoc_insertion_point(field_release:message.Payload.payload)
+inline std::string* PublisherMessage::release_payload() {
+  // @@protoc_insertion_point(field_release:message.PublisherMessage.payload)
   
   return payload_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void Payload::set_allocated_payload(std::string* payload) {
+inline void PublisherMessage::set_allocated_payload(std::string* payload) {
   if (payload != nullptr) {
     
   } else {
     
   }
   payload_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), payload);
-  // @@protoc_insertion_point(field_set_allocated:message.Payload.payload)
+  // @@protoc_insertion_point(field_set_allocated:message.PublisherMessage.payload)
+}
+
+// -------------------------------------------------------------------
+
+// SubscriberMessage
+
+// .message.VisitorProperty properties = 1;
+inline bool SubscriberMessage::_internal_has_properties() const {
+  return this != internal_default_instance() && properties_ != nullptr;
+}
+inline bool SubscriberMessage::has_properties() const {
+  return _internal_has_properties();
+}
+inline void SubscriberMessage::clear_properties() {
+  if (GetArenaNoVirtual() == nullptr && properties_ != nullptr) {
+    delete properties_;
+  }
+  properties_ = nullptr;
+}
+inline const ::message::VisitorProperty& SubscriberMessage::_internal_properties() const {
+  const ::message::VisitorProperty* p = properties_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::message::VisitorProperty*>(
+      &::message::_VisitorProperty_default_instance_);
+}
+inline const ::message::VisitorProperty& SubscriberMessage::properties() const {
+  // @@protoc_insertion_point(field_get:message.SubscriberMessage.properties)
+  return _internal_properties();
+}
+inline ::message::VisitorProperty* SubscriberMessage::release_properties() {
+  // @@protoc_insertion_point(field_release:message.SubscriberMessage.properties)
+  
+  ::message::VisitorProperty* temp = properties_;
+  properties_ = nullptr;
+  return temp;
+}
+inline ::message::VisitorProperty* SubscriberMessage::_internal_mutable_properties() {
+  
+  if (properties_ == nullptr) {
+    auto* p = CreateMaybeMessage<::message::VisitorProperty>(GetArenaNoVirtual());
+    properties_ = p;
+  }
+  return properties_;
+}
+inline ::message::VisitorProperty* SubscriberMessage::mutable_properties() {
+  // @@protoc_insertion_point(field_mutable:message.SubscriberMessage.properties)
+  return _internal_mutable_properties();
+}
+inline void SubscriberMessage::set_allocated_properties(::message::VisitorProperty* properties) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete properties_;
+  }
+  if (properties) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      properties = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, properties, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  properties_ = properties;
+  // @@protoc_insertion_point(field_set_allocated:message.SubscriberMessage.properties)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

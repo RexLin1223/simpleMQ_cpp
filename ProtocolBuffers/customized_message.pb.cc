@@ -20,24 +20,43 @@ class VisitorPropertyDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<VisitorProperty> _instance;
 } _VisitorProperty_default_instance_;
-class PayloadDefaultTypeInternal {
+class PublisherMessageDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Payload> _instance;
-} _Payload_default_instance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PublisherMessage> _instance;
+} _PublisherMessage_default_instance_;
+class SubscriberMessageDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SubscriberMessage> _instance;
+} _SubscriberMessage_default_instance_;
 }  // namespace message
-static void InitDefaultsscc_info_Payload_customized_5fmessage_2eproto() {
+static void InitDefaultsscc_info_PublisherMessage_customized_5fmessage_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::message::_Payload_default_instance_;
-    new (ptr) ::message::Payload();
+    void* ptr = &::message::_PublisherMessage_default_instance_;
+    new (ptr) ::message::PublisherMessage();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::message::Payload::InitAsDefaultInstance();
+  ::message::PublisherMessage::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Payload_customized_5fmessage_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Payload_customized_5fmessage_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PublisherMessage_customized_5fmessage_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_PublisherMessage_customized_5fmessage_2eproto}, {
+      &scc_info_VisitorProperty_customized_5fmessage_2eproto.base,}};
+
+static void InitDefaultsscc_info_SubscriberMessage_customized_5fmessage_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::message::_SubscriberMessage_default_instance_;
+    new (ptr) ::message::SubscriberMessage();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::message::SubscriberMessage::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SubscriberMessage_customized_5fmessage_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_SubscriberMessage_customized_5fmessage_2eproto}, {
       &scc_info_VisitorProperty_customized_5fmessage_2eproto.base,}};
 
 static void InitDefaultsscc_info_VisitorProperty_customized_5fmessage_2eproto() {
@@ -54,7 +73,7 @@ static void InitDefaultsscc_info_VisitorProperty_customized_5fmessage_2eproto() 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VisitorProperty_customized_5fmessage_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_VisitorProperty_customized_5fmessage_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_customized_5fmessage_2eproto[2];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_customized_5fmessage_2eproto[3];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_customized_5fmessage_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_customized_5fmessage_2eproto = nullptr;
 
@@ -69,45 +88,56 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_customized_5fmessage_2eproto::
   PROTOBUF_FIELD_OFFSET(::message::VisitorProperty, topic_),
   PROTOBUF_FIELD_OFFSET(::message::VisitorProperty, extension_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::message::Payload, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::message::PublisherMessage, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::message::Payload, property_),
-  PROTOBUF_FIELD_OFFSET(::message::Payload, payload_),
+  PROTOBUF_FIELD_OFFSET(::message::PublisherMessage, properties_),
+  PROTOBUF_FIELD_OFFSET(::message::PublisherMessage, payload_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::message::SubscriberMessage, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::message::SubscriberMessage, properties_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::message::VisitorProperty)},
-  { 9, -1, sizeof(::message::Payload)},
+  { 9, -1, sizeof(::message::PublisherMessage)},
+  { 16, -1, sizeof(::message::SubscriberMessage)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::message::_VisitorProperty_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::message::_Payload_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::message::_PublisherMessage_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::message::_SubscriberMessage_default_instance_),
 };
 
 const char descriptor_table_protodef_customized_5fmessage_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030customized_message.proto\022\007message\"i\n\017V"
   "isitorProperty\022\"\n\004type\030\001 \001(\0162\024.message.V"
   "isitorType\022\020\n\010category\030\002 \001(\t\022\r\n\005topic\030\003 "
-  "\001(\t\022\021\n\textension\030\004 \001(\t\"F\n\007Payload\022*\n\010pro"
-  "perty\030\001 \001(\0132\030.message.VisitorProperty\022\017\n"
-  "\007payload\030\002 \001(\t*,\n\013VisitorType\022\r\n\tPublish"
-  "er\020\000\022\016\n\nSubscriber\020\001b\006proto3"
+  "\001(\t\022\021\n\textension\030\004 \001(\t\"Q\n\020PublisherMessa"
+  "ge\022,\n\nproperties\030\001 \001(\0132\030.message.Visitor"
+  "Property\022\017\n\007payload\030\002 \001(\t\"A\n\021SubscriberM"
+  "essage\022,\n\nproperties\030\001 \001(\0132\030.message.Vis"
+  "itorProperty*,\n\013VisitorType\022\r\n\tPublisher"
+  "\020\000\022\016\n\nSubscriber\020\001b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_customized_5fmessage_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_customized_5fmessage_2eproto_sccs[2] = {
-  &scc_info_Payload_customized_5fmessage_2eproto.base,
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_customized_5fmessage_2eproto_sccs[3] = {
+  &scc_info_PublisherMessage_customized_5fmessage_2eproto.base,
+  &scc_info_SubscriberMessage_customized_5fmessage_2eproto.base,
   &scc_info_VisitorProperty_customized_5fmessage_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_customized_5fmessage_2eproto_once;
 static bool descriptor_table_customized_5fmessage_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_customized_5fmessage_2eproto = {
-  &descriptor_table_customized_5fmessage_2eproto_initialized, descriptor_table_protodef_customized_5fmessage_2eproto, "customized_message.proto", 268,
-  &descriptor_table_customized_5fmessage_2eproto_once, descriptor_table_customized_5fmessage_2eproto_sccs, descriptor_table_customized_5fmessage_2eproto_deps, 2, 0,
+  &descriptor_table_customized_5fmessage_2eproto_initialized, descriptor_table_protodef_customized_5fmessage_2eproto, "customized_message.proto", 346,
+  &descriptor_table_customized_5fmessage_2eproto_once, descriptor_table_customized_5fmessage_2eproto_sccs, descriptor_table_customized_5fmessage_2eproto_deps, 3, 0,
   schemas, file_default_instances, TableStruct_customized_5fmessage_2eproto::offsets,
-  file_level_metadata_customized_5fmessage_2eproto, 2, file_level_enum_descriptors_customized_5fmessage_2eproto, file_level_service_descriptors_customized_5fmessage_2eproto,
+  file_level_metadata_customized_5fmessage_2eproto, 3, file_level_enum_descriptors_customized_5fmessage_2eproto, file_level_service_descriptors_customized_5fmessage_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -429,25 +459,25 @@ void VisitorProperty::InternalSwap(VisitorProperty* other) {
 
 // ===================================================================
 
-void Payload::InitAsDefaultInstance() {
-  ::message::_Payload_default_instance_._instance.get_mutable()->property_ = const_cast< ::message::VisitorProperty*>(
+void PublisherMessage::InitAsDefaultInstance() {
+  ::message::_PublisherMessage_default_instance_._instance.get_mutable()->properties_ = const_cast< ::message::VisitorProperty*>(
       ::message::VisitorProperty::internal_default_instance());
 }
-class Payload::_Internal {
+class PublisherMessage::_Internal {
  public:
-  static const ::message::VisitorProperty& property(const Payload* msg);
+  static const ::message::VisitorProperty& properties(const PublisherMessage* msg);
 };
 
 const ::message::VisitorProperty&
-Payload::_Internal::property(const Payload* msg) {
-  return *msg->property_;
+PublisherMessage::_Internal::properties(const PublisherMessage* msg) {
+  return *msg->properties_;
 }
-Payload::Payload()
+PublisherMessage::PublisherMessage()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:message.Payload)
+  // @@protoc_insertion_point(constructor:message.PublisherMessage)
 }
-Payload::Payload(const Payload& from)
+PublisherMessage::PublisherMessage(const PublisherMessage& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
@@ -455,71 +485,71 @@ Payload::Payload(const Payload& from)
   if (!from._internal_payload().empty()) {
     payload_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.payload_);
   }
-  if (from._internal_has_property()) {
-    property_ = new ::message::VisitorProperty(*from.property_);
+  if (from._internal_has_properties()) {
+    properties_ = new ::message::VisitorProperty(*from.properties_);
   } else {
-    property_ = nullptr;
+    properties_ = nullptr;
   }
-  // @@protoc_insertion_point(copy_constructor:message.Payload)
+  // @@protoc_insertion_point(copy_constructor:message.PublisherMessage)
 }
 
-void Payload::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Payload_customized_5fmessage_2eproto.base);
+void PublisherMessage::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PublisherMessage_customized_5fmessage_2eproto.base);
   payload_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  property_ = nullptr;
+  properties_ = nullptr;
 }
 
-Payload::~Payload() {
-  // @@protoc_insertion_point(destructor:message.Payload)
+PublisherMessage::~PublisherMessage() {
+  // @@protoc_insertion_point(destructor:message.PublisherMessage)
   SharedDtor();
 }
 
-void Payload::SharedDtor() {
+void PublisherMessage::SharedDtor() {
   payload_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete property_;
+  if (this != internal_default_instance()) delete properties_;
 }
 
-void Payload::SetCachedSize(int size) const {
+void PublisherMessage::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const Payload& Payload::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Payload_customized_5fmessage_2eproto.base);
+const PublisherMessage& PublisherMessage::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_PublisherMessage_customized_5fmessage_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void Payload::Clear() {
-// @@protoc_insertion_point(message_clear_start:message.Payload)
+void PublisherMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:message.PublisherMessage)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   payload_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == nullptr && property_ != nullptr) {
-    delete property_;
+  if (GetArenaNoVirtual() == nullptr && properties_ != nullptr) {
+    delete properties_;
   }
-  property_ = nullptr;
+  properties_ = nullptr;
   _internal_metadata_.Clear();
 }
 
-const char* Payload::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* PublisherMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .message.VisitorProperty property = 1;
+      // .message.VisitorProperty properties = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_property(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_properties(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string payload = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_payload(), ptr, ctx, "message.Payload.payload");
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_payload(), ptr, ctx, "message.PublisherMessage.payload");
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -543,18 +573,18 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Payload::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* PublisherMessage::InternalSerializeWithCachedSizesToArray(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.Payload)
+  // @@protoc_insertion_point(serialize_to_array_start:message.PublisherMessage)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .message.VisitorProperty property = 1;
-  if (this->has_property()) {
+  // .message.VisitorProperty properties = 1;
+  if (this->has_properties()) {
     stream->EnsureSpace(&target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, _Internal::property(this), target, stream);
+        1, _Internal::properties(this), target, stream);
   }
 
   // string payload = 2;
@@ -562,7 +592,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_payload().data(), static_cast<int>(this->_internal_payload().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "message.Payload.payload");
+      "message.PublisherMessage.payload");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_payload(), target);
   }
@@ -571,12 +601,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:message.Payload)
+  // @@protoc_insertion_point(serialize_to_array_end:message.PublisherMessage)
   return target;
 }
 
-size_t Payload::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:message.Payload)
+size_t PublisherMessage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:message.PublisherMessage)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -590,11 +620,11 @@ size_t Payload::ByteSizeLong() const {
         this->_internal_payload());
   }
 
-  // .message.VisitorProperty property = 1;
-  if (this->has_property()) {
+  // .message.VisitorProperty properties = 1;
+  if (this->has_properties()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *property_);
+        *properties_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -606,23 +636,23 @@ size_t Payload::ByteSizeLong() const {
   return total_size;
 }
 
-void Payload::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:message.Payload)
+void PublisherMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:message.PublisherMessage)
   GOOGLE_DCHECK_NE(&from, this);
-  const Payload* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Payload>(
+  const PublisherMessage* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<PublisherMessage>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:message.Payload)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:message.PublisherMessage)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:message.Payload)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:message.PublisherMessage)
     MergeFrom(*source);
   }
 }
 
-void Payload::MergeFrom(const Payload& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:message.Payload)
+void PublisherMessage::MergeFrom(const PublisherMessage& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:message.PublisherMessage)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -632,38 +662,242 @@ void Payload::MergeFrom(const Payload& from) {
 
     payload_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.payload_);
   }
-  if (from.has_property()) {
-    _internal_mutable_property()->::message::VisitorProperty::MergeFrom(from._internal_property());
+  if (from.has_properties()) {
+    _internal_mutable_properties()->::message::VisitorProperty::MergeFrom(from._internal_properties());
   }
 }
 
-void Payload::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:message.Payload)
+void PublisherMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:message.PublisherMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Payload::CopyFrom(const Payload& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:message.Payload)
+void PublisherMessage::CopyFrom(const PublisherMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:message.PublisherMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Payload::IsInitialized() const {
+bool PublisherMessage::IsInitialized() const {
   return true;
 }
 
-void Payload::InternalSwap(Payload* other) {
+void PublisherMessage::InternalSwap(PublisherMessage* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   payload_.Swap(&other->payload_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  swap(property_, other->property_);
+  swap(properties_, other->properties_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Payload::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata PublisherMessage::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void SubscriberMessage::InitAsDefaultInstance() {
+  ::message::_SubscriberMessage_default_instance_._instance.get_mutable()->properties_ = const_cast< ::message::VisitorProperty*>(
+      ::message::VisitorProperty::internal_default_instance());
+}
+class SubscriberMessage::_Internal {
+ public:
+  static const ::message::VisitorProperty& properties(const SubscriberMessage* msg);
+};
+
+const ::message::VisitorProperty&
+SubscriberMessage::_Internal::properties(const SubscriberMessage* msg) {
+  return *msg->properties_;
+}
+SubscriberMessage::SubscriberMessage()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.SubscriberMessage)
+}
+SubscriberMessage::SubscriberMessage(const SubscriberMessage& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_properties()) {
+    properties_ = new ::message::VisitorProperty(*from.properties_);
+  } else {
+    properties_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:message.SubscriberMessage)
+}
+
+void SubscriberMessage::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SubscriberMessage_customized_5fmessage_2eproto.base);
+  properties_ = nullptr;
+}
+
+SubscriberMessage::~SubscriberMessage() {
+  // @@protoc_insertion_point(destructor:message.SubscriberMessage)
+  SharedDtor();
+}
+
+void SubscriberMessage::SharedDtor() {
+  if (this != internal_default_instance()) delete properties_;
+}
+
+void SubscriberMessage::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const SubscriberMessage& SubscriberMessage::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SubscriberMessage_customized_5fmessage_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void SubscriberMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:message.SubscriberMessage)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaNoVirtual() == nullptr && properties_ != nullptr) {
+    delete properties_;
+  }
+  properties_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+const char* SubscriberMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .message.VisitorProperty properties = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_properties(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* SubscriberMessage::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.SubscriberMessage)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .message.VisitorProperty properties = 1;
+  if (this->has_properties()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, _Internal::properties(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.SubscriberMessage)
+  return target;
+}
+
+size_t SubscriberMessage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:message.SubscriberMessage)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .message.VisitorProperty properties = 1;
+  if (this->has_properties()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *properties_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SubscriberMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:message.SubscriberMessage)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SubscriberMessage* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SubscriberMessage>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:message.SubscriberMessage)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:message.SubscriberMessage)
+    MergeFrom(*source);
+  }
+}
+
+void SubscriberMessage::MergeFrom(const SubscriberMessage& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:message.SubscriberMessage)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_properties()) {
+    _internal_mutable_properties()->::message::VisitorProperty::MergeFrom(from._internal_properties());
+  }
+}
+
+void SubscriberMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:message.SubscriberMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SubscriberMessage::CopyFrom(const SubscriberMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:message.SubscriberMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SubscriberMessage::IsInitialized() const {
+  return true;
+}
+
+void SubscriberMessage::InternalSwap(SubscriberMessage* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(properties_, other->properties_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SubscriberMessage::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -674,8 +908,11 @@ PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::message::VisitorProperty* Arena::CreateMaybeMessage< ::message::VisitorProperty >(Arena* arena) {
   return Arena::CreateInternal< ::message::VisitorProperty >(arena);
 }
-template<> PROTOBUF_NOINLINE ::message::Payload* Arena::CreateMaybeMessage< ::message::Payload >(Arena* arena) {
-  return Arena::CreateInternal< ::message::Payload >(arena);
+template<> PROTOBUF_NOINLINE ::message::PublisherMessage* Arena::CreateMaybeMessage< ::message::PublisherMessage >(Arena* arena) {
+  return Arena::CreateInternal< ::message::PublisherMessage >(arena);
+}
+template<> PROTOBUF_NOINLINE ::message::SubscriberMessage* Arena::CreateMaybeMessage< ::message::SubscriberMessage >(Arena* arena) {
+  return Arena::CreateInternal< ::message::SubscriberMessage >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
