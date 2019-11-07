@@ -4,22 +4,31 @@
 
 #include "CategoryRoom.h"
 
-#include "Utility.h"
+#include <Common/Utility.h>
 
 namespace message {
 	
-	MessageChannelPtr RoomManager::get_room_channel(const std::string& room_name)
+	RoomManager::~RoomManager()
 	{
-		if (!map_.try_find(room_name)) {
-			// Create room if not exist
-			create_room(room_name);
-		}
-		
-		CategoryRoom* room_ptr = map_.peek(room_name);
-		return  room_ptr->get_channel_ptr();
+
 	}
 
-	size_t RoomManager::room_size()
+	MessageChannelPtr RoomManager::get_room_channel(const std::string& category, const std::string& topic)
+	{
+		if (!map_.try_find(category)) {
+			create_room(category);
+		}
+		
+		auto room_ptr = map_.peek(category);
+		if (!topic.empty()) {
+			return room_ptr->get_topic_channel(topic);
+		}
+		else {
+			return  room_ptr->get_channel();
+		}
+	}
+
+	size_t RoomManager::room_count()
 	{
 		return map_.size();
 	}
@@ -27,8 +36,7 @@ namespace message {
 	bool RoomManager::create_room(const std::string& room_name)
 	{
 		try {
-			CategoryRoom room = CategoryRoom(room_name);
-			map_.insert(room_name, room);
+			map_.insert(std::string(room_name), std::make_shared<CategoryRoom>(room_name));
 			return true;
 		}
 		catch (...) {

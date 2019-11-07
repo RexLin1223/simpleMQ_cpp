@@ -11,10 +11,11 @@ namespace message {
 		MessageChannelPtr room_channel_;
 		boost::asio::streambuf read_buffer_;
 	public:
-		Sender(VisitorProperties&& properties);
+		Sender(VisitorInfo&& properties);
 		virtual ~Sender();
 
-		void run();
+		void run() override;
+		void set_channel(MessageChannelPtr channel) override;
 	private:
 		void do_read();
 	};

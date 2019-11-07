@@ -10,10 +10,9 @@ namespace message {
 		BaseRoom() = default;
 		BaseRoom(const std::string& room_name);
 		virtual ~BaseRoom();
-
-		// Call by receiver
-		void join(ChannelListener&& listener);
-		void left(const std::string& listener_id);
+		
+	public:
+		MessageChannelPtr get_channel();
 	};
 	
 }

@@ -2,15 +2,17 @@
 
 namespace message {
 
-	BaseVisitor::BaseVisitor(VisitorProperties&& properties)
+	BaseVisitor::BaseVisitor(VisitorInfo&& properties)
 		: Worker(1)
 		, properties_(std::move(properties))
 	{
-		send_alive();
+		Worker::run();
 	}
 
 	BaseVisitor::~BaseVisitor()
 	{
+		stop();
+
 		boost::system::error_code ec;
 		properties_.socket_.shutdown(boost::asio::ip::tcp::socket::shutdown_both, ec);
 		properties_.socket_.close(ec);
@@ -34,6 +36,26 @@ namespace message {
 	void BaseVisitor::stop()
 	{
 		timer_.cancel();
+	}
+	
+	VisitorInfo::Type BaseVisitor::get_type()
+	{
+		return properties_.type_;
+	}
+
+	std::string BaseVisitor::get_category()
+	{
+		return properties_.category_;
+	}
+
+	std::string BaseVisitor::get_topic()
+	{
+		return properties_.topic_;
+	}
+
+	std::string BaseVisitor::get_uid()
+	{
+		return properties_.unique_id_;
 	}
 
 	void BaseVisitor::timer_worker()

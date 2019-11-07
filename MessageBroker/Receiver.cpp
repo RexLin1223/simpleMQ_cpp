@@ -1,8 +1,9 @@
 #include "Receiver.h"
+#include "MessageChannel.h"
 
 namespace message {
 
-	Receiver::Receiver(VisitorProperties&& properties)
+	Receiver::Receiver(VisitorInfo&& properties)
 		: BaseVisitor(std::move(properties))
 	{
 
@@ -10,7 +11,20 @@ namespace message {
 
 	Receiver::~Receiver()
 	{
+		stop();
+	}
 
+	void Receiver::run()
+	{
+		BaseVisitor::start();
+	}
+
+	void Receiver::set_channel(MessageChannelPtr channel)
+	{
+		if (channel) {
+			channel->subscribe(properties_.unique_id_, 
+				std::bind(&Receiver::on_message, this, std::placeholders::_1));
+		}
 	}
 
 	void Receiver::on_message(std::shared_ptr<std::string> serializedMessage)

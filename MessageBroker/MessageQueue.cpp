@@ -4,7 +4,9 @@
 namespace message {
 	MessageQueue::MessageQueue(size_t worker_count)
 		: Worker(worker_count)
-		, channel_(nullptr) {}
+		, channel_(nullptr) {
+		Worker::run();
+	}
 
 	void MessageQueue::set_channel(MessageChannelPtr channel)
 	{

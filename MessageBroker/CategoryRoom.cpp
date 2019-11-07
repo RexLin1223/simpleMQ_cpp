@@ -1,5 +1,5 @@
 #include "CategoryRoom.h"
-#include "BaseRoom.h"
+#include "TopicRoom.h"
 
 namespace message {
 
@@ -15,16 +15,21 @@ namespace message {
 
 	}
 
+	MessageChannelPtr CategoryRoom::get_topic_channel(const std::string& topic)
+	{
+		if (!topic_rooms_.try_find(topic)) return nullptr;
+		
+		auto room_ptr = topic_rooms_.peek(topic);
+		if (!room_ptr) return nullptr;
+		
+		return room_ptr->get_channel();
+	}
+
 	void CategoryRoom::push_message(std::string&& message)
 	{
 		if (message_queue_) {
 			message_queue_->push(std::move(message));
 		}
 	}
-
-	MessageChannelPtr CategoryRoom::get_channel_ptr()
-	{
-		return channel_;
-	}
-
+	
 }

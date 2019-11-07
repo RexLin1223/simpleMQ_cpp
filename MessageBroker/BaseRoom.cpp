@@ -11,18 +11,11 @@ namespace message {
 	{
 		channel_.reset();
 	}
+
 	
-	void BaseRoom::join(ChannelListener&& listener)
+	MessageChannelPtr BaseRoom::get_channel()
 	{
-		if (channel_) {
-			channel_->subscribe(std::move(listener));
-		}
+		return channel_;
 	}
 
-	void BaseRoom::left(const std::string& listener_id)
-	{
-		if (channel_) {
-			channel_->desubscribe(listener_id);
-		}
-	}
 }

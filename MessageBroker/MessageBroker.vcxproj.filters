@@ -30,12 +30,6 @@
     <ClInclude Include="MessageBroker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Worker.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RequestHandler.h">
-      <Filter>Request</Filter>
-    </ClInclude>
     <ClInclude Include="RequestListener.h">
       <Filter>Request</Filter>
     </ClInclude>
@@ -63,14 +57,23 @@
     <ClInclude Include="Sender.h">
       <Filter>Visitor</Filter>
     </ClInclude>
-    <ClInclude Include="Utility.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MessageQueue.h">
       <Filter>MessageStorage</Filter>
     </ClInclude>
-    <ClInclude Include="LockedContainer.h">
-      <Filter>MessageStorage</Filter>
+    <ClInclude Include="RequestHandler.h">
+      <Filter>Request</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageBrokerDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Worker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\LockedContainer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -84,9 +87,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RequestListener.cpp">
-      <Filter>Request</Filter>
-    </ClCompile>
-    <ClCompile Include="RequestHandler.cpp">
       <Filter>Request</Filter>
     </ClCompile>
     <ClCompile Include="RoomManager.cpp">
@@ -112,6 +112,9 @@
     </ClCompile>
     <ClCompile Include="MessageQueue.cpp">
       <Filter>MessageStorage</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestHandler.cpp">
+      <Filter>Request</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

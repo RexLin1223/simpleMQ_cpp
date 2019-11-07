@@ -2,18 +2,25 @@
 #include "MessageChannel.h"
 namespace message {
 
-	Sender::Sender(VisitorProperties&& properties)
+	Sender::Sender(VisitorInfo&& properties)
 		: BaseVisitor(std::move(properties))
 	{
 	}
 
 	Sender::~Sender()
 	{
+		stop();
 	}
 
 	void Sender::run()
 	{
 		do_read();
+		BaseVisitor::start();
+	}
+
+	void Sender::set_channel(MessageChannelPtr channel)
+	{
+		room_channel_ = channel;
 	}
 
 	void Sender::do_read()

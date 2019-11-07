@@ -7,8 +7,6 @@
 
 namespace message {
 	template<typename DataType> using Handler = std::function<void(std::shared_ptr<DataType>)>;
-	template<typename DataType> using Listener = std::pair<std::string, Handler<DataType>>;
-
 	template<typename DataType>
 	class Channel {
 		std::shared_mutex  mutex_;
@@ -20,14 +18,14 @@ namespace message {
 			subscribers_map_.clear();
 		}
 
-		void subscribe(const Listener<DataType>& listener) {
+		void subscribe(const std::string& listener_id, const Handler<DataType>& listener) {
 			std::lock_guard<std::shared_mutex> guard(mutex_);
-			subscribers_map_.insert(listener);
+			subscribers_map_.insert(std::make_pair(listener_id, listener));
 		}
 
-		void subscribe(Listener<DataType>&& listener) {
+		void subscribe(const std::string& listener_id, Handler<DataType>&& listener) {
 			std::lock_guard<std::shared_mutex> guard(mutex_);
-			subscribers_map_.insert(std::move(listener));
+			subscribers_map_.insert(std::make_pair(listener_id, std::move(listener)));
 		}
 		
 		void desubscribe(const std::string& listener_id) {
@@ -70,5 +68,5 @@ namespace message {
 
 	using MessageChannel = Channel<std::string>;
 	using MessageChannelPtr = std::shared_ptr<MessageChannel>;
-	using ChannelListener = Listener<std::string>;
+	using ChannelListener = Handler<std::string>;
 }

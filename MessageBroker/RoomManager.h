@@ -1,5 +1,5 @@
 #pragma once
-#include "LockedContainer.h"
+#include <Common/LockedContainer.h>
 
 namespace message {
 	// Forward declaration
@@ -12,10 +12,16 @@ namespace message {
 	using MessageChannelPtr = std::shared_ptr<MessageChannel>;
 
 	class RoomManager {
-		queue::LockedMap<std::string, CategoryRoom> map_;
+		queue::LockedMap<std::string, std::shared_ptr<CategoryRoom>> map_;
 	public:
-		MessageChannelPtr get_room_channel(const std::string& room_name);
-		size_t room_size();
+		RoomManager() = default;
+		virtual ~RoomManager();
+
+		MessageChannelPtr get_room_channel(
+			const std::string& room_name,
+			const std::string& topic);
+
+		size_t room_count();
 
 	private:
 		bool create_room(const std::string& room_name);
