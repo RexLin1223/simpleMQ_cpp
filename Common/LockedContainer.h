@@ -148,25 +148,14 @@ namespace queue {
 		}
 
 		// Manipulation
+		void insert(T1&& key, T2&& value) {
+			boost::unique_lock<boost::shared_mutex> lock(mutex_);
+			map_[std::move(key)] = std::move(value);
+		}
 
 		void insert(const T1& key, const T2& value) {
 			boost::unique_lock<boost::shared_mutex> lock(mutex_);
-			map_.insert(std::make_pair(key, value));
-		}
-
-		void insert(T1&& key, T2&& value) {
-			boost::unique_lock<boost::shared_mutex> lock(mutex_);
-			map_.insert(std::make_pair(std::move(key), std::move(value)));
-		}
-
-		void insert(const std::pair<const T1, T2>& pair) {
-			boost::unique_lock<boost::shared_mutex> lock(mutex_);
-			map_.insert(pair);
-		}
-		
-		void insert(std::pair<T1, T2>&& pair) {
-			boost::unique_lock<boost::shared_mutex> lock(mutex_);
-			map_.insert(std::move(pair));
+			map_[key] = value;
 		}
 
 		void drop(const T1& key) {
@@ -184,21 +173,20 @@ namespace queue {
 
 		T2&& fetch(const T1& key) {
 			boost::shared_lock<boost::shared_mutex> lock(mutex_);
-			if (map_.empty()) return T2();
-			if (map_.find(key) == map_.end()) return T2();
+			if (map_.empty()) throw "empty";
+			if (map_.find(key) == map_.end()) throw "not found";
 
 			T2 value = std::move(map_[key]);
 			map_.erase(key);
 			return std::move(value);
 		}
 
-		T2* peek(const T1& key) {
+		T2& peek(const T1& key) {
 			boost::shared_lock<boost::shared_mutex> lock(mutex_);
-			if (map_.empty()) return nullptr;
-			if (map_.find(key) == map_.end()) return nullptr;
+			if (map_.empty()) throw "empty";
+			if (map_.find(key) == map_.end()) throw "not found";
 
-			T2& value = map_[key];
-			return &value;
+			return map_[key];
 		}
 
 		void clear() {

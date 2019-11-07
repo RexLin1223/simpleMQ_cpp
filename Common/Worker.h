@@ -24,7 +24,7 @@ namespace message {
 			, timer_(io_context_)
 			, thread_count_(thread_count)
 		{}
-		virtual ~Worker() {}
+		virtual ~Worker() { stop(); }
 
 		void run() {
 			for (size_t i = 0; i < thread_count_; ++i) {
