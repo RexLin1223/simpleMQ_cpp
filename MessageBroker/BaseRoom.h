@@ -1,8 +1,13 @@
 #pragma once
-#include "MessageQueue.h"
+#include <string>
+#include <memory>
 
 namespace message {
-	class BaseRoom {
+	template<typename> class Channel;
+	using MessageChannel = Channel<std::string>;
+	using MessageChannelPtr = std::shared_ptr<MessageChannel>;
+
+	class BaseRoom : public std::enable_shared_from_this<BaseRoom> {
 	protected:
 		std::string room_name_;
 		MessageChannelPtr channel_;

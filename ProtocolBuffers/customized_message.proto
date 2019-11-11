@@ -3,8 +3,9 @@ syntax = "proto3";
 package message;
 
 enum VisitorType {
-	Publisher = 0;
-	Subscriber = 1;
+	unknown = 0;
+	publisher = 1;
+	subscriber = 2;
 }
 
 message VisitorProperty {

@@ -136,12 +136,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\LockedContainer.h" />
+    <ClInclude Include="..\Common\MessageChannel.h" />
     <ClInclude Include="..\Common\Utility.h" />
     <ClInclude Include="..\Common\Worker.h" />
     <ClInclude Include="BaseVisitor.h" />
     <ClInclude Include="CategoryRoom.h" />
     <ClInclude Include="MessageBrokerDef.h" />
-    <ClInclude Include="MessageChannel.h" />
     <ClInclude Include="MessageBroker.h" />
     <ClInclude Include="MessageQueue.h" />
     <ClInclude Include="Receiver.h" />

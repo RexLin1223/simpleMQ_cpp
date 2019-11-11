@@ -12,12 +12,14 @@ namespace proto {
 namespace message {
 	class PublisherMessage;
 	class SubscriberMessage;
+	class Worker;
 
-	class RequestListener : public Worker {
+	class RequestListener {
+		std::shared_ptr<Worker> worker_;
 		std::unique_ptr<boost::asio::ip::tcp::acceptor> acceptor_;
 		OnVisitor on_visitor_;
 	public:
-		RequestListener();
+		RequestListener(std::shared_ptr<Worker> worker);
 		virtual ~RequestListener();
 
 		bool start(unsigned short port);

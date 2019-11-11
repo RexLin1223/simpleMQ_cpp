@@ -3,8 +3,8 @@
 
 namespace message {
 
-	TopicRoom::TopicRoom(std::string&& room_name)
-		: BaseRoom(std::move(room_name))
+	TopicRoom::TopicRoom(const std::string& room_name)
+		: BaseRoom(room_name)
 	{
 
 	}

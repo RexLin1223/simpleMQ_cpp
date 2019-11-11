@@ -1,22 +1,21 @@
 #pragma once
 #include <string>
 #include "BaseRoom.h"
-#include "MessageQueue.h"
+#include <Common/LockedContainer.h>
 
 namespace message {
 	class TopicRoom;
 	class CategoryRoom : public BaseRoom {
-		std::shared_ptr<MessageQueue> message_queue_;
-		queue::LockedMap<std::string, std::shared_ptr<TopicRoom>> topic_rooms_;
+		queue::LockedMap<std::string, std::weak_ptr<TopicRoom>> topic_rooms_;
 
 	public:
 		CategoryRoom() = default;
 		CategoryRoom(const std::string& room_name);
 		virtual ~CategoryRoom();
 
-		MessageChannelPtr get_topic_channel(const std::string& topic);
+		std::shared_ptr<BaseRoom> get_topic_room(const std::string& topic);
 
-		// Call by sender
-		void push_message(std::string&& message);
+	private:
+		std::shared_ptr<BaseRoom> create_topic_room(const std::string& topic);
 	};
 }

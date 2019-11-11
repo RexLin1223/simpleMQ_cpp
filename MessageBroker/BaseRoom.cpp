@@ -1,4 +1,5 @@
 #include "BaseRoom.h"
+#include <Common/MessageChannel.h>
 
 namespace message {
 	BaseRoom::BaseRoom(const std::string& room_name)
@@ -12,7 +13,6 @@ namespace message {
 		channel_.reset();
 	}
 
-	
 	MessageChannelPtr BaseRoom::get_channel()
 	{
 		return channel_;

@@ -22,9 +22,6 @@
     <Filter Include="Visitor">
       <UniqueIdentifier>{1a93d5cc-2e57-4ebd-b860-638befee3043}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MessageStorage">
-      <UniqueIdentifier>{be47aad8-195a-4829-ab15-e649de7a3385}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MessageBroker.h">
@@ -42,9 +39,6 @@
     <ClInclude Include="BaseRoom.h">
       <Filter>Room</Filter>
     </ClInclude>
-    <ClInclude Include="MessageChannel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TopicRoom.h">
       <Filter>Room</Filter>
     </ClInclude>
@@ -56,9 +50,6 @@
     </ClInclude>
     <ClInclude Include="Sender.h">
       <Filter>Visitor</Filter>
-    </ClInclude>
-    <ClInclude Include="MessageQueue.h">
-      <Filter>MessageStorage</Filter>
     </ClInclude>
     <ClInclude Include="RequestHandler.h">
       <Filter>Request</Filter>
@@ -73,6 +64,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Common\LockedContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\MessageChannel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -110,11 +107,11 @@
     <ClCompile Include="Sender.cpp">
       <Filter>Visitor</Filter>
     </ClCompile>
-    <ClCompile Include="MessageQueue.cpp">
-      <Filter>MessageStorage</Filter>
-    </ClCompile>
     <ClCompile Include="RequestHandler.cpp">
       <Filter>Request</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageQueue.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

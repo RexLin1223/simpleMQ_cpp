@@ -3,7 +3,7 @@
 
 int main() {
 	message::Broker broker;
-	broker.strart();
+	broker.start();
 
 	int i;
 	std::cin >> i;

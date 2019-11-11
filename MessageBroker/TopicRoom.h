@@ -8,7 +8,7 @@ namespace message {
 	class TopicRoom : public BaseRoom {
 	public:
 		TopicRoom() = default;
-		TopicRoom(std::string&& room_name);
+		TopicRoom(const std::string& room_name);
 		virtual ~TopicRoom();
 	};
 }

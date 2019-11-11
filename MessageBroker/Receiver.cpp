@@ -1,12 +1,14 @@
 #include "Receiver.h"
-#include "MessageChannel.h"
+#include "BaseRoom.h"
+#include <Common/MessageChannel.h>
 
 namespace message {
 
-	Receiver::Receiver(VisitorInfo&& properties)
-		: BaseVisitor(std::move(properties))
+	Receiver::Receiver(
+		VisitorInfo&& properties, 
+		std::shared_ptr<Worker> worker)
+		: BaseVisitor(std::move(properties), worker)
 	{
-
 	}
 
 	Receiver::~Receiver()
@@ -19,30 +21,47 @@ namespace message {
 		BaseVisitor::start();
 	}
 
-	void Receiver::set_channel(MessageChannelPtr channel)
+	void Receiver::set_room(std::shared_ptr<BaseRoom> room)
 	{
+		room_ = room;
+		auto channel = room_->get_channel();
 		if (channel) {
-			channel->subscribe(properties_.unique_id_, 
+			channel->subscribe(properties_.unique_id_,
 				std::bind(&Receiver::on_message, this, std::placeholders::_1));
 		}
 	}
 
 	void Receiver::on_message(std::shared_ptr<std::string> serializedMessage)
 	{
-		// Send to receiver
+		bool is_writing = !queue_.empty();
+		queue_.push(serializedMessage);
+		if (!is_writing) {
+			send();
+		}
+	}
+
+	void Receiver::send()
+	{
+		if (queue_.empty()) {
+			return;
+		}
+
+		auto data = queue_.fetch();
 		boost::asio::async_write(properties_.socket_,
-			boost::asio::buffer(serializedMessage->data(), 
-				serializedMessage->size()),
-			[serializedMessage, this]
+			boost::asio::buffer(
+				data->data(),
+				data->size()),
+			[data, this]
 		(boost::system::error_code ec,
 			std::size_t byte_transferred) {
 			if (ec) {
 				if (on_error_) {
-					on_error_(ec.message().c_str());
+					on_error_(ec.message());
 				}
-				if (on_close_) {
-					on_close_();
-				}
+			}
+
+			if (queue_.size() > 0) {
+				send();
 			}
 		});
 	}

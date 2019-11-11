@@ -3,13 +3,14 @@
 
 #include <iostream>
 
-#include <Common/logger.h>
+#include <Common/Logger.h>
+#include <Common/Worker.h>
 #include <boost/format.hpp>
 
 namespace message {
 
-	RequestListener::RequestListener()
-		: Worker(1)
+	RequestListener::RequestListener(std::shared_ptr<Worker> worker)
+		: worker_(worker)
 		, acceptor_(nullptr)
 	{
 	}
@@ -22,13 +23,11 @@ namespace message {
 	{
 		try {
 			acceptor_ = std::make_unique<boost::asio::ip::tcp::acceptor>(
-				io_context_, boost::asio::ip::tcp::endpoint(
+				worker_->io_context_, boost::asio::ip::tcp::endpoint(
 					boost::asio::ip::tcp::v4(), port));
 			if (!acceptor_) return false;
 
 			do_accept();
-			Worker::run();
-
 			logger::info("start", boost::str(boost::format("Listening port: %s") % port));
 			return true;
 		}
@@ -40,7 +39,6 @@ namespace message {
 
 	void RequestListener::stop()
 	{
-		Worker::stop();
 	}
 
 	void RequestListener::set_on_visitor(OnVisitor on_visitor)
@@ -60,7 +58,7 @@ namespace message {
 
 			logger::info("accept", "New visitor coming!");
 			std::make_shared<RequestHandler>(
-				std::move(socket), on_visitor_)->run();
+				std::move(socket), worker_, on_visitor_)->run();
 
 			do_accept();
 		});

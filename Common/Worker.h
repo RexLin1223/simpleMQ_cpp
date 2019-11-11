@@ -5,14 +5,15 @@
 
 namespace message {
 	class Worker {
-	protected:
+	public:
+		boost::asio::io_context io_context_;
+		boost::asio::steady_timer timer_;
+	private:
 		typedef boost::asio::executor_work_guard<boost::asio::io_context::executor_type> io_worker;
-
 		size_t thread_count_;
 		boost::thread_group thread_group_;
-		boost::asio::io_context io_context_;
 		io_worker io_worker_;
-		boost::asio::steady_timer timer_;
+	public:
 	
 		Worker() = delete;
 		Worker(const Worker&) = delete;
@@ -35,6 +36,7 @@ namespace message {
 		void stop() {
 			io_worker_.reset();
 			io_context_.stop();
+			timer_.cancel();
 			thread_group_.join_all();
 		}
 	};

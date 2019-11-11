@@ -121,8 +121,8 @@ const char descriptor_table_protodef_customized_5fmessage_2eproto[] PROTOBUF_SEC
   "ge\022,\n\nproperties\030\001 \001(\0132\030.message.Visitor"
   "Property\022\017\n\007payload\030\002 \001(\t\"A\n\021SubscriberM"
   "essage\022,\n\nproperties\030\001 \001(\0132\030.message.Vis"
-  "itorProperty*,\n\013VisitorType\022\r\n\tPublisher"
-  "\020\000\022\016\n\nSubscriber\020\001b\006proto3"
+  "itorProperty*9\n\013VisitorType\022\013\n\007unknown\020\000"
+  "\022\r\n\tpublisher\020\001\022\016\n\nsubscriber\020\002b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_customized_5fmessage_2eproto_deps[1] = {
 };
@@ -134,7 +134,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_cus
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_customized_5fmessage_2eproto_once;
 static bool descriptor_table_customized_5fmessage_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_customized_5fmessage_2eproto = {
-  &descriptor_table_customized_5fmessage_2eproto_initialized, descriptor_table_protodef_customized_5fmessage_2eproto, "customized_message.proto", 346,
+  &descriptor_table_customized_5fmessage_2eproto_initialized, descriptor_table_protodef_customized_5fmessage_2eproto, "customized_message.proto", 359,
   &descriptor_table_customized_5fmessage_2eproto_once, descriptor_table_customized_5fmessage_2eproto_sccs, descriptor_table_customized_5fmessage_2eproto_deps, 3, 0,
   schemas, file_default_instances, TableStruct_customized_5fmessage_2eproto::offsets,
   file_level_metadata_customized_5fmessage_2eproto, 3, file_level_enum_descriptors_customized_5fmessage_2eproto, file_level_service_descriptors_customized_5fmessage_2eproto,
@@ -151,6 +151,7 @@ bool VisitorType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 2:
       return true;
     default:
       return false;

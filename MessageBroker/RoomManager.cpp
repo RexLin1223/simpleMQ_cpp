@@ -1,6 +1,5 @@
 #include "RoomManager.h"
-#include "MessageChannel.h"
-#include "MessageQueue.h"
+#include <Common/MessageChannel.h>
 
 #include "CategoryRoom.h"
 
@@ -13,18 +12,26 @@ namespace message {
 
 	}
 
-	MessageChannelPtr RoomManager::get_room_channel(const std::string& category, const std::string& topic)
+	std::shared_ptr<BaseRoom> RoomManager::get_room(const std::string& category, const std::string& topic)
 	{
+		std::shared_ptr<BaseRoom> room_ptr;
 		if (!map_.try_find(category)) {
-			create_room(category);
-		}
-		
-		auto room_ptr = map_.peek(category);
-		if (!topic.empty()) {
-			return room_ptr->get_topic_channel(topic);
+			room_ptr = create_room(category);
 		}
 		else {
-			return  room_ptr->get_channel();
+			auto room_weak_ptr = map_.peek(category);
+			room_ptr = room_weak_ptr.lock();
+
+			if (!room_ptr) {
+				room_ptr = create_room(category);
+			}
+		}
+
+		if (!topic.empty()) {
+			return std::dynamic_pointer_cast<CategoryRoom>(room_ptr)->get_topic_room(topic);
+		}
+		else {
+			return room_ptr;
 		}
 	}
 
@@ -33,11 +40,12 @@ namespace message {
 		return map_.size();
 	}
 
-	bool RoomManager::create_room(const std::string& room_name)
+	std::shared_ptr<BaseRoom> RoomManager::create_room(const std::string& room_name)
 	{
 		try {
-			map_.insert(std::string(room_name), std::make_shared<CategoryRoom>(room_name));
-			return true;
+			auto room_ptr = std::make_shared<CategoryRoom>(room_name);
+			map_.insert(std::string(room_name), room_ptr);
+			return room_ptr;
 		}
 		catch (...) {
 		}

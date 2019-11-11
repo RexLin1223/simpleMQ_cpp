@@ -1,12 +1,14 @@
 #include "BaseVisitor.h"
+#include <Common/Worker.h>
 
 namespace message {
 
-	BaseVisitor::BaseVisitor(VisitorInfo&& properties)
-		: Worker(1)
-		, properties_(std::move(properties))
+	BaseVisitor::BaseVisitor(
+		VisitorInfo&& properties,
+		std::shared_ptr<Worker> worker)
+		: properties_(std::move(properties))
+		, worker_(worker)
 	{
-		Worker::run();
 	}
 
 	BaseVisitor::~BaseVisitor()
@@ -35,7 +37,7 @@ namespace message {
 
 	void BaseVisitor::stop()
 	{
-		timer_.cancel();
+		worker_->timer_.cancel();
 	}
 	
 	VisitorInfo::Type BaseVisitor::get_type()
@@ -61,16 +63,13 @@ namespace message {
 	void BaseVisitor::timer_worker()
 	{
 		auto self = shared_from_this();
-		timer_.expires_after(std::chrono::seconds(5));
-		timer_.async_wait([this, self](boost::system::error_code ec) {
+		worker_->timer_.expires_after(std::chrono::seconds(5));
+		worker_->timer_.async_wait([this, self](boost::system::error_code ec) {
 			if (ec) {
 				return;
 			}
 
-			// Execute worker
 			send_alive();
-
-			timer_worker();
 		});
 	}
 
@@ -87,8 +86,10 @@ namespace message {
 				if (on_close_) {
 					on_close_();
 				}
-				timer_.cancel();
+				return;
 			}
+
+			timer_worker();
 		});
 	
 		

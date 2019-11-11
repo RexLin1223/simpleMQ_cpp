@@ -7,12 +7,12 @@
 namespace queue {
 
 	template<typename T>
-	class LockedLinkList {
+	class LockedList {
 		boost::shared_mutex mutex_;
 		std::list<T> list_;
 	public:
-		LockedLinkList() {}
-		virtual ~LockedLinkList() {}
+		LockedList() {}
+		virtual ~LockedList() {}
 
 		// Careful about issue of race condition
 		std::list<T>& get() {

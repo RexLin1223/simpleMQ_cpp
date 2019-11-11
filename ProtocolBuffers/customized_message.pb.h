@@ -74,14 +74,15 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace message {
 
 enum VisitorType : int {
-  Publisher = 0,
-  Subscriber = 1,
+  unknown = 0,
+  publisher = 1,
+  subscriber = 2,
   VisitorType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   VisitorType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool VisitorType_IsValid(int value);
-constexpr VisitorType VisitorType_MIN = Publisher;
-constexpr VisitorType VisitorType_MAX = Subscriber;
+constexpr VisitorType VisitorType_MIN = unknown;
+constexpr VisitorType VisitorType_MAX = subscriber;
 constexpr int VisitorType_ARRAYSIZE = VisitorType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* VisitorType_descriptor();

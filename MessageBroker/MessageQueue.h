@@ -1,10 +1,10 @@
 #pragma once
-#include "MessageChannel.h"
+#include <Common/MessageChannel.h>
 #include <Common/LockedContainer.h>
 #include <Common/Worker.h>
 
 namespace message {
-	typedef queue::LockedLinkList<std::shared_ptr<std::string>> MessagePtrList;
+	typedef queue::LockedList<std::shared_ptr<std::string>> MessagePtrList;
 	
 	class MessageQueue : public Worker {
 		MessagePtrList queue_;

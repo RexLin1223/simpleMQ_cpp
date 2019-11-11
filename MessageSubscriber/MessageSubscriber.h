@@ -10,7 +10,7 @@ namespace message  {
 		boost::asio::ip::tcp::resolver resolver_;
 		boost::asio::ip::tcp::socket socket_;
 		boost::asio::streambuf read_buffer_;
-		queue::LockedLinkList<std::shared_ptr<std::string>> list_;
+		queue::LockedList<std::shared_ptr<std::string>> list_;
 
 		std::string sub_category_;
 		std::string sub_topic_;
