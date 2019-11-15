@@ -14,7 +14,7 @@
 namespace message {
 
 	Broker::Broker()
-		: worker_(std::make_shared<Worker>(1))
+		: worker_(std::make_shared<Worker>(2))
 		, listener_(std::make_unique<RequestListener>(worker_))
 		, room_manager_(std::make_unique<RoomManager>())
 	{
@@ -52,7 +52,7 @@ namespace message {
 		if (!room_ptr) return;
 		
 		visitor->set_on_error([this](const std::string& error_message) {
-			logger::error("on_visitor", error_message.c_str());
+			logger::error("on_visitor", error_message.c_str()); 
 		});
 
 		visitor->set_on_close([this]() {

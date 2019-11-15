@@ -1,5 +1,6 @@
 #include "RequestHandler.h"
 #include <Common/MessageChannel.h>
+#include <Common/Logger.h>
 
 #include "Sender.h"
 #include "Receiver.h"
@@ -42,18 +43,21 @@ namespace message {
 		auto self = shared_from_this();
 		boost::asio::async_read(socket_, read_buffer_.prepare(8),
 			[self, this](boost::system::error_code ec, std::size_t byte_transferred) {
-			if (!ec) {
-				read_buffer_.commit(byte_transferred);
-				const char* data_ptr = boost::asio::buffer_cast<const char*>(read_buffer_.data());
-				if (data_ptr[0] == 0x00 && data_ptr[1] == 0x00 && data_ptr[2] == 0x01 && (unsigned char)data_ptr[3] == 0xb2) {
-					uint32_t  payload_size;
-					memcpy(&payload_size, data_ptr + 4, sizeof(uint32_t));
-					if (payload_size > 0) {
-						read_body(payload_size);
-					}
-				}
-				read_buffer_.consume(byte_transferred);
+			if (ec) {
+				logger::error("read_header", ec.message());
+				return;
 			}
+			//logger::debug("RequestHandler", "read_header");
+			read_buffer_.commit(byte_transferred);
+			const char* data_ptr = boost::asio::buffer_cast<const char*>(read_buffer_.data());
+			if (data_ptr[0] == 0x00 && data_ptr[1] == 0x00 && data_ptr[2] == 0x01 && (unsigned char)data_ptr[3] == 0xb2) {
+				uint32_t  payload_size;
+				memcpy(&payload_size, data_ptr + 4, sizeof(uint32_t));
+				if (payload_size > 0) {
+					read_body(payload_size);
+				}
+			}
+			read_buffer_.consume(byte_transferred);
 		});
 	}
 
@@ -62,18 +66,21 @@ namespace message {
 		auto self = shared_from_this();
 		boost::asio::async_read(socket_, read_buffer_.prepare(body_size),
 			[self, this](boost::system::error_code ec, std::size_t byte_transferred) {
-			if (!ec) {
-				read_buffer_.commit(byte_transferred);
-
-				const char* data_ptr = boost::asio::buffer_cast<const char*>(read_buffer_.data());
-				if (message_dispatcher_) {
-					message_dispatcher_->dispatch(
-						proto::message_deserializer::deserialize(
-							data_ptr, byte_transferred));
-				}
-
-				read_buffer_.consume(byte_transferred);
+			if (ec) {
+				logger::error("read_body", ec.message());
+				return;
 			}
+			//logger::debug("RequestHandler", "read_body");
+			read_buffer_.commit(byte_transferred);
+
+			const char* data_ptr = boost::asio::buffer_cast<const char*>(read_buffer_.data());
+			if (message_dispatcher_) {
+				message_dispatcher_->dispatch(
+					proto::message_deserializer::deserialize(
+						data_ptr, byte_transferred));
+			}
+
+			read_buffer_.consume(byte_transferred);
 		});
 	}
 

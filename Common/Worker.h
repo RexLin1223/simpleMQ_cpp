@@ -7,7 +7,6 @@ namespace message {
 	class Worker {
 	public:
 		boost::asio::io_context io_context_;
-		boost::asio::steady_timer timer_;
 	private:
 		typedef boost::asio::executor_work_guard<boost::asio::io_context::executor_type> io_worker;
 		size_t thread_count_;
@@ -22,21 +21,18 @@ namespace message {
 		explicit Worker(size_t thread_count)
 			: io_context_(thread_count)
 			, io_worker_(boost::asio::make_work_guard(io_context_))
-			, timer_(io_context_)
 			, thread_count_(thread_count)
 		{}
 		virtual ~Worker() { stop(); }
 
 		void run() {
 			for (size_t i = 0; i < thread_count_; ++i) {
-				auto func = [this]() { io_context_.run(); };
-				thread_group_.create_thread(func);
+				thread_group_.create_thread([this]() { io_context_.run(); });
 			}
 		}
 		void stop() {
 			io_worker_.reset();
 			io_context_.stop();
-			timer_.cancel();
 			thread_group_.join_all();
 		}
 	};

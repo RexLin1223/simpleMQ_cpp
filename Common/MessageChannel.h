@@ -28,7 +28,7 @@ namespace message {
 			subscribers_map_.insert(std::make_pair(listener_id, std::move(listener)));
 		}
 		
-		void desubscribe(const std::string& listener_id) {
+		void unsubscribe(const std::string& listener_id) {
 			std::lock_guard<std::shared_mutex> guard(mutex_);
 			subscribers_map_.erase(listener_id);
 		}

@@ -4,6 +4,7 @@
 #include "CategoryRoom.h"
 
 #include <Common/Utility.h>
+#include <Common/Logger.h>
 
 namespace message {
 	
@@ -14,6 +15,9 @@ namespace message {
 
 	std::shared_ptr<BaseRoom> RoomManager::get_room(const std::string& category, const std::string& topic)
 	{
+		// Force for race condition
+		boost::unique_lock<boost::mutex> lock(mutex_);
+
 		std::shared_ptr<BaseRoom> room_ptr;
 		if (!map_.try_find(category)) {
 			room_ptr = create_room(category);
@@ -43,6 +47,7 @@ namespace message {
 	std::shared_ptr<BaseRoom> RoomManager::create_room(const std::string& room_name)
 	{
 		try {
+			logger::info("create_category_room", room_name);
 			auto room_ptr = std::make_shared<CategoryRoom>(room_name);
 			map_.insert(std::string(room_name), room_ptr);
 			return room_ptr;

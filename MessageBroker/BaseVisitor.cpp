@@ -1,5 +1,8 @@
 #include "BaseVisitor.h"
 #include <Common/Worker.h>
+#include <Common/Logger.h>
+
+#include <vector>
 
 namespace message {
 
@@ -8,6 +11,7 @@ namespace message {
 		std::shared_ptr<Worker> worker)
 		: properties_(std::move(properties))
 		, worker_(worker)
+		, timer_(worker_->io_context_)
 	{
 	}
 
@@ -37,7 +41,7 @@ namespace message {
 
 	void BaseVisitor::stop()
 	{
-		worker_->timer_.cancel();
+		timer_.cancel();
 	}
 	
 	VisitorInfo::Type BaseVisitor::get_type()
@@ -63,22 +67,29 @@ namespace message {
 	void BaseVisitor::timer_worker()
 	{
 		auto self = shared_from_this();
-		worker_->timer_.expires_after(std::chrono::seconds(5));
-		worker_->timer_.async_wait([this, self](boost::system::error_code ec) {
+		timer_.expires_after(std::chrono::seconds(5));
+		timer_.async_wait([this, self](boost::system::error_code ec) {
 			if (ec) {
+				logger::error("timer worker", ec.message());
 				return;
 			}
-
 			send_alive();
 		});
 	}
 
 	void BaseVisitor::send_alive()
 	{
+		static auto keep_alive_message = std::make_shared<std::string>("keep_alive");
+		std::shared_ptr<std::vector<boost::asio::const_buffer>> buf_vec_ptr =
+			std::make_shared<std::vector<boost::asio::const_buffer>>();
+
+		uint32_t size = keep_alive_message->size();
+		buf_vec_ptr->emplace_back(boost::asio::buffer(start_code, sizeof(start_code)));
+		buf_vec_ptr->emplace_back(boost::asio::buffer(&size, sizeof(uint32_t)));
+		buf_vec_ptr->emplace_back(boost::asio::buffer(*keep_alive_message));
+		
 		auto self = shared_from_this();
-		boost::asio::async_write(properties_.socket_, 
-			boost::asio::buffer("keep_alive"),
-			[this, self](boost::system::error_code ec, std::size_t byte_transferred) {
+		do_write(buf_vec_ptr, [this, self, buf_vec_ptr](boost::system::error_code ec, std::size_t byte_transferred) {
 			if (ec) {
 				if (on_error_) {
 					on_error_(ec.message().c_str());
@@ -91,8 +102,6 @@ namespace message {
 
 			timer_worker();
 		});
-	
-		
 	}
 
 }

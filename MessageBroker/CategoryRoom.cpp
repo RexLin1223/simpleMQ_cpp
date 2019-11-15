@@ -1,6 +1,8 @@
 #include "CategoryRoom.h"
 #include "TopicRoom.h"
 
+#include <Common/Logger.h>
+
 namespace message {
 
 	CategoryRoom::CategoryRoom(const std::string& room_name)
@@ -10,7 +12,6 @@ namespace message {
 
 	CategoryRoom::~CategoryRoom()
 	{
-
 	}
 
 	std::shared_ptr<BaseRoom> CategoryRoom::get_topic_room(const std::string& topic)
@@ -26,7 +27,8 @@ namespace message {
 	
 	std::shared_ptr<BaseRoom> CategoryRoom::create_topic_room(const std::string& topic)
 	{
-		auto room_ptr = std::make_shared<TopicRoom>(topic);
+		logger::info("create_topic_room", topic);
+		auto room_ptr = std::make_shared<TopicRoom>(topic, shared_from_this());
 		topic_rooms_.insert(topic, room_ptr);
 
 		return room_ptr;

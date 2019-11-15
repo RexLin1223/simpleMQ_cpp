@@ -23,6 +23,7 @@ namespace message {
 		virtual ~Sender();
 
 		void run() override;
+		void close() override;
 		void set_room(std::shared_ptr<BaseRoom> room) override;
 	private:
 		void read_header();

@@ -8,7 +8,6 @@
 #include <ProtocolBuffers/customized_message.pb.h>
 
 namespace message {
-
 	class Publisher : public std::enable_shared_from_this<Publisher> {
 		Worker worker_;
 
@@ -16,8 +15,11 @@ namespace message {
 		boost::asio::ip::tcp::socket socket_;
 
 		queue::LockedList<std::shared_ptr<std::string>> list_;
-		VisitorProperty properties_;
 		message::PublisherMessage message_;
+
+		boost::shared_mutex mutex_;
+
+		OnError on_error_;
 	public:
 		Publisher() = delete;
 		Publisher(const std::string& category, const std::string& topic)
@@ -25,11 +27,10 @@ namespace message {
 			, resolver_(boost::asio::make_strand(worker_.io_context_))
 			, socket_(worker_.io_context_)
 		{
-			properties_.set_type(VisitorType::publisher);
-			properties_.set_category(category);
-			properties_.set_topic(topic);
-
-			message_.set_allocated_properties(&properties_);
+			auto properties =  message_.mutable_properties();
+			properties->set_type(VisitorType::publisher);
+			properties->set_category(category);
+			properties->set_topic(topic);
 		}
 
 		void start(const std::string& host, const std::string& port) {
@@ -63,12 +64,17 @@ namespace message {
 
 			auto data_ptr = std::make_shared<std::string>(
 				proto::message_serializer::serialize(message_));
+
 			list_.push(data_ptr);
 
 			auto self = shared_from_this();
-			worker_.io_context_.post([this]() {
+			worker_.io_context_.post([this, self]() {
 				do_send();
 			});
+		}
+
+		void set_on_error(OnError on_error) {
+			on_error_ = on_error;
 		}
 
 	private:
@@ -115,8 +121,7 @@ namespace message {
 			if (list_.empty()) return;
 			auto data_ptr = list_.fetch();
 
-			std::vector<boost::asio::const_buffer> buf_vec(2);
-			const char start_code[4] = { 0x00, 0x00, 0x01, 0xb2 };
+			std::vector<boost::asio::const_buffer> buf_vec;
 			uint32_t size = data_ptr->size();
 			buf_vec.emplace_back(boost::asio::buffer(start_code, sizeof(start_code)));
 			buf_vec.emplace_back(boost::asio::buffer(&size, sizeof(uint32_t)));
@@ -130,12 +135,16 @@ namespace message {
 					std::size_t bytes_transfered) {
 				if (ec) {
 					logger::error("write", ec.message());
+					if (on_error_) {
+						on_error_(ec.message());
+					}
 					return;
 				}
 
-				if (!list_.empty()) {
+				//logger::debug("Publisher", ++count);
+				/*if (!list_.empty()) {
 					do_send();
-				}
+				}*/
 			});
 		}
 	};
