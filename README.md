@@ -1,6 +1,7 @@
 # SimpleMQ
 # Description
-The libraray is using for handle unserlying socket process which made by C++ language.
+To process massive message passing is an annoying issue.
+Message Queue design is a simple way to decouple the message producer and consumer.
 
 # Dependency Library
 We are using Boost ASIO library for implement asynchronous in network IO.
