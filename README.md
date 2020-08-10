@@ -1,4 +1,4 @@
-# network_lib
+# SimpleMQ
 # Description
 The libraray is using for handle unserlying socket process which made by C++ language.
 
